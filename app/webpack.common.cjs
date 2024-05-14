@@ -10,7 +10,7 @@ module.exports = {
       template: './index.html',
       filename: 'index.html',
       inject: 'body',
-      favicon: './src/assets/headshot.png'
+      favicon: './src/assets/icon.png'
     })
   ],
   module: {
@@ -38,7 +38,7 @@ module.exports = {
         type: 'asset/resource',
       },
       {
-        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        test: /\.(woff|woff2|eot|ttf|otf|reg)$/i,
         type: 'asset/resource',
       },
     ],

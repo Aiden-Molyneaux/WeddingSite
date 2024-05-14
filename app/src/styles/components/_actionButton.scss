@@ -1,0 +1,21 @@
+/* ACTION BUTTONS */
+
+.actionButton {
+  @include flex(column, auto, flex-end);
+  padding: 0px;
+  background-color: transparent;
+  border: none;
+}
+
+.actionButtonText {
+  padding-left: 10px;
+  transition: all 0.3s ease;
+}
+
+.actionButtonClicked {
+  padding-left: 2px;
+  padding-right: 8px;
+  color: $dark-blue;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
