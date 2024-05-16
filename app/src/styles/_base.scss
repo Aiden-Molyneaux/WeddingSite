@@ -7,19 +7,26 @@
   height: 100vh;
   text-align: center;
   line-height: 1.5;
-  color: $white;
+  color: $blue;
   font-family: $content-font;
   font-size: 18px;
+  font-weight: 400;
   background-color: $blush;
+  overflow-x: hidden;
 }
 
 h1 {
   font-size: 5.5em;
 }
 
+h2 {
+  font-size: 1.5em;
+  font-weight: inherit;
+}
+
 h3 {
   font-size: 1.33em;
-  font-weight: 500;
+  font-weight: inherit;
 }
 
 h4 {
@@ -31,18 +38,14 @@ h6 {
   font-size: 0.66em;
 }
 
-h1, h2, h3, h4 {
-  color: $blue;
-  font-weight: 400;
-  font-style: normal;
-}
-
-body, h1, h2, h3, h6, p {
+body, h1, h2, h3, h4, h6, p {
   margin: 0px;
 }
 
 a {
   color: $blue;
+  font-family: $content-font;
+  font-size: 1.1em;
   text-decoration: none;
   text-wrap: none;
   transition: all 0.3s ease;
@@ -51,9 +54,9 @@ a {
 .pageContent {
   @include flex(column, center, center);
   width: 100%;
-  margin-top: 100px;
   padding-bottom: 20px;
   animation: fadeIn .5s ease-in-out;
+  z-index: 1;
 }
 
 @keyframes fadeIn {
@@ -65,8 +68,9 @@ a {
   }
 }
 
-@media (max-width: 450px) and (orientation: portrait) {
-  #root::-webkit-scrollbar {
-    display: none;
-  }
+.sectionHeader {
+  width: 90%;
+  padding: 20px 0px;
+  font-size: 40px;
+  white-space: nowrap;
 }

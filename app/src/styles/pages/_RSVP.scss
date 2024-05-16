@@ -1,0 +1,107 @@
+/* CONTACT PAGE */
+
+.rvspForm {
+  @include flex(column, flex-start, flex-start);
+  width: 50%;
+  padding-bottom: 30px;
+}
+
+.rsvpForm > .sectionHeader {
+  align-self: center;
+}
+
+.rsvpSection {
+  @include flex(row, flex-start, center);
+  gap: 15px;
+}
+
+.rsvpField {
+  @include flex(column, auto, flex-start);
+  width: 60%;
+  margin: 3px 0px;
+}
+
+.rsvpSelect {
+  margin: 5px 0px;
+  padding: 8px;
+  font-family: $content-font;
+  color: $blue;
+  font-size: 1em;
+  background-color: $white;
+  border: 1px solid $blue;
+  border-radius: 3px;
+}
+
+.plusOneCheck input[type="checkbox"] {
+  appearance: none;
+  background-color: $white;
+  border: 1px solid $blue;
+  border-radius: 3px;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  cursor: pointer;
+
+  &:checked::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 10px;
+    height: 10px;
+    background-color: $blue;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+  }
+}
+
+.textField {
+  @include flex(column, auto, flex-start);
+  width: 100%;
+  margin: 3px 0px;
+}
+
+.labelText {
+  color: $blue;
+  white-space: nowrap;
+}
+
+.inputFocused {
+  color: $dark-blue;
+}
+
+input, textarea {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0px;
+  background-color: $white;
+  border: 1px solid $blue;
+  border-radius: 3px;
+  font-family: $content-font;
+  color: $blue;
+  font-size: 1em;
+}
+
+input:focus, input:hover, textarea:focus, textarea:hover {
+  border-color: $dark-blue;
+  outline: none;
+}
+
+.rsvpSubmit {
+  align-self: center;
+  margin: 25px;
+  padding: 8px;
+  background: linear-gradient(45deg, #F9F295, #E0AA3E, #E0AA3E, #B88A44);
+  font-family: $content-font;
+  color: $white;
+  border: none;
+  border-radius: 3px;
+  font-size: 1em;
+  transition: all 0.3s ease;
+}
+
+.rsvpSubmit:hover {
+  scale: 1.1;
+  cursor: pointer;
+}
