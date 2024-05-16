@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import useWindowSize from '../utils/useWindowState.js';
 import ActionButton from './ActionButton.jsx';
+import leftFlower from '../assets/leftFlower.jpg';
+import rightFlower from '../assets/rightFlower.jpg';
+
 
 export default function Navbar() {
   const routes = [
@@ -9,7 +12,8 @@ export default function Navbar() {
     { id: '03', path: '/stay', name: 'Places to Stay' },
     { id: '04', path: '/contribute', name: 'Contribute to Our Honeymoon' },
     { id: '05', path: '/musicRequests', name: 'Music Requests' },
-    { id: '05', path: '/FAQ', name: 'FAQ' }
+    { id: '06', path: '/FAQ', name: 'FAQ' },
+    { id: '07', path: '/RSVP', name: 'RSVP' }
   ];
 
   const { width, height } = useWindowSize();
@@ -21,9 +25,11 @@ export default function Navbar() {
   
   return (
     <div className='navbar'>
-      <div className={'navbarContent'}>
+      <img src={leftFlower} alt='flower' className='leftFlower'/>
+      <img src={rightFlower} alt='flower' className='rightFlower'/>
+      <div className='navbarContent'>
         <h2 className='navbarName'>
-          <span>Kyra <span className='smallerFont'>and</span> Aiden</span>
+          <span>Kyra <span className='smallerFont'>&</span> Aiden</span>
         </h2>
 
         { width <= 750 && 
@@ -33,7 +39,7 @@ export default function Navbar() {
         }
       </div>
 
-      <h2 className='navBarInfo'>September 25, 2025 ⋅ Perth, ON</h2>
+      <h2 className='navBarInfo'>September 20, 2025 • Perth, ON</h2>
 
       { width <= 750
         ? <div className={`mobileMenu ${isMenuOpen ? 'mobileMenuOpen' : ''}`}>

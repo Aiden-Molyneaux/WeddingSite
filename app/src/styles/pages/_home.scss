@@ -2,15 +2,12 @@
 
 .homeContent {
   @include flex(column, center, center);
+  position: relative;
   gap: 20px;
-  padding-top: 25px;
+  margin-top: 25px;
   letter-spacing: 0.05em;
   animation: fadeIn .5s ease-in-out;
-}
-
-.homeContent > h2 {
-  font-size: 2em;
-  font-weight: 500;
+  z-index: 1;
 }
 
 .homeImg {
@@ -19,41 +16,48 @@
   border-radius: 10px;
 }
 
-@media (max-width: 1350px) {
-  h1 {
-    font-size: 3em;
-  }
-  .homeContent > h2 {
-    font-size: 1.2em;
-  }
+.marriedText {
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  font-family: $wedding-font;
+  color: $white;
+  font-size: 4em;
+  border-radius: 3px;
+  white-space: nowrap;
 }
 
-@media (max-width: 750px) {
-  h1 {
-    line-height: 100%;
-  }
-  .homeContent > p {
-    margin-top: 0px;
-    font-size: 0.6em;
-  }
+.rsvpButton {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  padding-top: 13px;
+  border: none;
+  border-radius: 3px;
+  color: $white;
+  font-family: $content-font;
+  font-size: 1.5em;
+  background: linear-gradient(45deg, #F9F295, #E0AA3E, #E0AA3E, #B88A44);
+  animation: pulse 2s infinite;
 }
 
-@media (max-width: 750px) and (orientation: landscape) {
-  .homeContent {
-    margin-top: 100px;
+.rsvpButton:hover {
+  scale: 1.1;
+  cursor: pointer;
+}
+
+@keyframes pulse {
+  0% {
+    transform: translateX(-50%) scale(1);
   }
-}
-
-@media (max-width: 750px) and (orientation: portrait) {
-  .homeContent {
-    justify-content: flex-end;
-    height: 86%;
-  } 
-}
-
-@media (max-width: 380px) and (orientation: portrait) {
-  .homeContent {
-    height: 20%;
-    margin-top: 40%;
+  50% {
+    transform: translateX(-50%) scale(1.1);
+  }
+  100% {
+    transform: translateX(-50%) scale(1);
   }
 }

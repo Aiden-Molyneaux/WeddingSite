@@ -4,6 +4,8 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import './styles/app.scss';
 import Navbar from './components/Navbar.jsx';
 import Home from './pages/Home.jsx';
+import RSVP from './pages/RSVP.jsx';
+import Footer from './components/Footer.jsx';
 
 function App() {
   const navigate = useNavigate();
@@ -24,7 +26,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home/>}></Route>
         <Route path="/home" element={<Home/>}></Route>
+        <Route path="/RSVP" element={<RSVP/>}></Route>
       </Routes>
+      <Footer/>
     </> 
   );
 }
