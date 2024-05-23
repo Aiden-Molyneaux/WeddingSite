@@ -1,0 +1,27 @@
+.textField {
+  @include flex(column, auto, flex-start);
+  width: 100%;
+  margin: 3px 0px;
+}
+
+input, textarea {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0px;
+  background-color: $white;
+  border: 1px solid $blue;
+  border-radius: 3px;
+  font-family: $content-font;
+  color: $blue;
+  font-size: 1em;
+}
+
+textarea {
+  resize: vertical;
+}
+
+input:focus, input:hover, textarea:focus, textarea:hover, .rsvpSelect:focus, .rsvpSelect:hover {
+  box-shadow: 0px 0px 5px 0px $blue;
+  outline: none;
+}

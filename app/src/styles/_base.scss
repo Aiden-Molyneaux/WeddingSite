@@ -35,7 +35,7 @@ h4 {
 }
 
 h6 {
-  font-size: 0.66em;
+  font-size: 1em;
 }
 
 body, h1, h2, h3, h4, h6, p {
@@ -54,7 +54,6 @@ a {
 .pageContent {
   @include flex(column, center, center);
   width: 100%;
-  padding-bottom: 20px;
   animation: fadeIn .5s ease-in-out;
   z-index: 1;
 }
@@ -69,8 +68,16 @@ a {
 }
 
 .sectionHeader {
-  width: 90%;
+  width: 100%;
   padding: 20px 0px;
   font-size: 40px;
   white-space: nowrap;
+}
+
+.topMargin {
+  margin-top: 15px !important;
+}
+
+.bottomMargin {
+  margin-bottom: 15px;
 }
