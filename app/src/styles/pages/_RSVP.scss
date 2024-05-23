@@ -2,37 +2,19 @@
 
 .rvspForm {
   @include flex(column, flex-start, flex-start);
-  width: 50%;
-  padding-bottom: 30px;
-}
-
-.rsvpForm > .sectionHeader {
-  align-self: center;
+  
+  label {
+    font-weight: 700;
+  }
 }
 
 .rsvpSection {
   @include flex(row, flex-start, center);
   gap: 15px;
+  width: 100%;
 }
 
-.rsvpField {
-  @include flex(column, auto, flex-start);
-  width: 60%;
-  margin: 3px 0px;
-}
-
-.rsvpSelect {
-  margin: 5px 0px;
-  padding: 8px;
-  font-family: $content-font;
-  color: $blue;
-  font-size: 1em;
-  background-color: $white;
-  border: 1px solid $blue;
-  border-radius: 3px;
-}
-
-.plusOneCheck input[type="checkbox"] {
+.rsvpSection input[type="checkbox"] {
   appearance: none;
   background-color: $white;
   border: 1px solid $blue;
@@ -55,37 +37,27 @@
   }
 }
 
-.textField {
+.rsvpField {
   @include flex(column, auto, flex-start);
-  width: 100%;
+  width: 60%;
   margin: 3px 0px;
 }
 
-.labelText {
-  color: $blue;
-  white-space: nowrap;
-}
-
-.inputFocused {
-  color: $dark-blue;
-}
-
-input, textarea {
-  box-sizing: border-box;
-  width: 100%;
-  padding: 8px;
+.rsvpSelect {
+  width: 220px;
   margin: 5px 0px;
-  background-color: $white;
-  border: 1px solid $blue;
-  border-radius: 3px;
+  padding: 8px;
   font-family: $content-font;
   color: $blue;
   font-size: 1em;
-}
+  background-color: $white;
+  border: 1px solid $blue;
+  border-radius: 3px;
 
-input:focus, input:hover, textarea:focus, textarea:hover {
-  border-color: $dark-blue;
-  outline: none;
+  &:focus, &:hover {
+    box-shadow: 0px 0px 5px 0px $blue;
+    outline: none;
+  }
 }
 
 .rsvpSubmit {
@@ -97,11 +69,33 @@ input:focus, input:hover, textarea:focus, textarea:hover {
   color: $white;
   border: none;
   border-radius: 3px;
-  font-size: 1em;
+  font-size: 1.1em;
   transition: all 0.3s ease;
+  animation: pulse 2s infinite;
+
+  &:hover {
+    scale: 1.1;
+    cursor: pointer;
+  }
 }
 
-.rsvpSubmit:hover {
-  scale: 1.1;
-  cursor: pointer;
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.emailDetails {
+  align-self: center;
+}
+
+.topBorder {
+  padding-top: 15px;
+  border-top: 2px solid $blue;
 }

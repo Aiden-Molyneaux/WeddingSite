@@ -31,12 +31,7 @@ export default function ActionButton({ id, path, name, toggleMenu, supportMobile
     window.localStorage.setItem('location', JSON.stringify({ path: path }));
   }
 
-  function getClassName(element) {
-    if (element === 'h6') {
-      if (isHovered || isClicked) return 'addPadding';
-      return 'removePadding';
-    }
-
+  function getClassName() {
     if (isHovered || isClicked) return 'actionButtonClicked actionButtonText';
     return 'actionButtonText';
   }

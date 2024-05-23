@@ -1,0 +1,7 @@
+.musicRequestForm {
+  @include flex(column, flex-start, flex-start);
+
+  label {
+    font-weight: 700;
+  }
+}

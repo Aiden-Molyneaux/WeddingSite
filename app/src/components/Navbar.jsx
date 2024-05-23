@@ -8,9 +8,9 @@ import rightFlower from '../assets/rightFlower.jpg';
 export default function Navbar() {
   const routes = [
     { id: '01', path: '/home', name: 'Home' },
-    { id: '02', path: '/story', name: 'Our Story' },
-    { id: '03', path: '/stay', name: 'Places to Stay' },
-    { id: '04', path: '/contribute', name: 'Contribute to Our Honeymoon' },
+    { id: '02', path: '/ourStory', name: 'Our Story' },
+    { id: '03', path: '/placesToStay', name: 'Places to Stay' },
+    { id: '04', path: '/gifts', name: 'Wedding Gifts' },
     { id: '05', path: '/musicRequests', name: 'Music Requests' },
     { id: '06', path: '/FAQ', name: 'FAQ' },
     { id: '07', path: '/RSVP', name: 'RSVP' }

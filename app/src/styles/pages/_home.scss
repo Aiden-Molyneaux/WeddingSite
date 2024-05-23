@@ -42,15 +42,15 @@
   font-family: $content-font;
   font-size: 1.5em;
   background: linear-gradient(45deg, #F9F295, #E0AA3E, #E0AA3E, #B88A44);
-  animation: pulse 2s infinite;
+  animation: homePulse 2s infinite;
+
+  &:hover {
+    scale: 1.1;
+    cursor: pointer;
+  }
 }
 
-.rsvpButton:hover {
-  scale: 1.1;
-  cursor: pointer;
-}
-
-@keyframes pulse {
+@keyframes homePulse {
   0% {
     transform: translateX(-50%) scale(1);
   }
