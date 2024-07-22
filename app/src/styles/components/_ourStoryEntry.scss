@@ -1,0 +1,38 @@
+.cursorBar {
+  @include flex(row, center, flex-end);
+  gap: 20px;
+  height: 50px;
+  transition: all 1s ease;
+}
+
+.cursorButtons {
+  @include flex(row, center, center);
+  align-self: center;
+  gap: 10px;
+}
+
+.cursorButtons > button {
+  @include flex(row, center, center);
+  width: 40px;
+  height: 40px;
+  background-color: $blush;
+  border-radius: 1000px;
+}
+
+.activeEntry {
+  width: 50px;
+  padding: 5px 10px;
+  color: $white;
+  background-color: $blue;
+  border-top-left-radius: 1vh;
+  border-top-right-radius: 1vh;
+  transition: all 1s ease;
+}
+
+.inactiveEntry {
+  height: 5px;
+  width: 70px;
+  background-color: $blue;
+  transition: all 1s ease;
+}
+

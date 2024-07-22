@@ -4,7 +4,6 @@ import ActionButton from './ActionButton.jsx';
 import leftFlower from '../assets/leftFlower.jpg';
 import rightFlower from '../assets/rightFlower.jpg';
 
-
 export default function Navbar() {
   const routes = [
     { id: '01', path: '/home', name: 'Home' },

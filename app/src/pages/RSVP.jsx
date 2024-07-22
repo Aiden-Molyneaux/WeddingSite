@@ -46,17 +46,17 @@ export default function RSVP() {
       method: 'POST',
       body: new FormData(event.target),
     })
-    .then(() => {
-      window.localStorage.setItem('formSubmitted', JSON.stringify(true));
-      setIsLoading(false);
-      setFormSubmitted(true);
-    })
-    .catch(() => {
-      setIsLoading(false);
-    });
+      .then(() => {
+        window.localStorage.setItem('formSubmitted', JSON.stringify(true));
+        setIsLoading(false);
+        setFormSubmitted(true);
+      })
+      .catch(() => {
+        setIsLoading(false);
+      });
   }
 
-  console.log(formData)
+  console.log(formData);
 
   return (
     <div className='pageContent'>
@@ -64,31 +64,30 @@ export default function RSVP() {
         <h3 className='sectionHeader'>RSVP</h3>
 
         { formSubmitted 
-        ? <h6 className='bottomMargin topMargin'>You have successfully RSVP'd to Kyra and Aiden's wedding!</h6>
-        : <>
-          <div className='rsvpSection'>
-            <div className='rsvpField'>
-              <label htmlFor='name'>Who are you?</label>
-              <select name="name" className='rsvpSelect' value={formData.name} onChange={handleChange}>
-                {attendees.map((attendee, index) => (
-                  <option key={index} value={attendee.name}>
-                    {attendee.name}
-                  </option>
-                ))}
-              </select>
+          ? <h6 className='bottomMargin topMargin'>You have successfully RSVP'd to Kyra and Aiden's wedding!</h6>
+          : <>
+            <div className='rsvpSection'>
+              <div className='rsvpField'>
+                <label htmlFor='name'>Who are you?</label>
+                <select name="name" className='rsvpSelect' value={formData.name} onChange={handleChange}>
+                  {attendees.map((attendee, index) => (
+                    <option key={index} value={attendee.name}>
+                      {attendee.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <div className='rsvpField'>
+                <h6>Will you be attending?</h6>
+                <select className='rsvpSelect' name="willAttend" value={formData.willAttend} onChange={handleChange}>
+                  <option value='yes'>Happy to be there! 😊</option>
+                  <option value='no'>So sad to miss it! 😥</option>
+                </select>
+              </div>
             </div>
 
-            <div className='rsvpField'>
-              <h6>Will you be attending?</h6>
-              <select className='rsvpSelect' name="willAttend" value={formData.willAttend} onChange={handleChange}>
-                <option value='yes'>Happy to be there! 😊</option>
-                <option value='no'>So sad to miss it! 😥</option>
-              </select>
-            </div>
-          </div>
-
-
-          { attendees.find(attendee => attendee.name === formData.name).plusOne &&
+            { attendees.find(attendee => attendee.name === formData.name).plusOne &&
             <>
               <div className='rsvpSection'>
                 <label>★ You have been given a plus one! Accept?</label>
@@ -106,21 +105,21 @@ export default function RSVP() {
                 }
               </div>
             </>
-          }
+            }
           
-          { formData.willAttend === 'yes' && <>
-            <div className='topMargin rsvpSection topBorder'>
-              <div className='rsvpField'>
-                <label>Your meal choice</label>
-                <select className='rsvpSelect' name="mealChoice" value={formData.mealChoice} onChange={handleChange}>
-                  <option value='Steak'>Steak</option>
-                  <option value='Chicken'>Chicken</option>
-                  <option value='Pasta'>Pasta (vegan)</option>
-                  <option value='Stuffed Peppers'>Stuffed Peppers (vegan)</option>
-                </select>
-              </div>
+            { formData.willAttend === 'yes' && <>
+              <div className='topMargin rsvpSection topBorder'>
+                <div className='rsvpField'>
+                  <label>Your meal choice</label>
+                  <select className='rsvpSelect' name="mealChoice" value={formData.mealChoice} onChange={handleChange}>
+                    <option value='Steak'>Steak</option>
+                    <option value='Chicken'>Chicken</option>
+                    <option value='Pasta'>Pasta (vegan)</option>
+                    <option value='Stuffed Peppers'>Stuffed Peppers (vegan)</option>
+                  </select>
+                </div>
 
-              { formData.acceptPlusOne && 
+                { formData.acceptPlusOne && 
                 <div className='rsvpField'>
                   <label>Guest meal choice</label>
                   <select className='rsvpSelect' name="mealChoicePlusOne" value={formData.mealChoicePlusOne} onChange={handleChange}>
@@ -130,88 +129,88 @@ export default function RSVP() {
                     <option value='Stuffed Peppers'>Stuffed Peppers (vegan)</option>
                   </select>
                 </div>
-              } 
-            </div>
+                } 
+              </div>
 
-            <TextField 
-              id='01' 
-              label='Dietary Restrictions' 
-              name='dietaryRestrictions' 
-              type='textarea' 
-              value={formData.dietaryRestrictions}
-              required={false}
-              handleChange={handleChange}
-            />
-
-            <div className='topMargin topBorder rsvpSection'>
               <TextField 
-                id='02' 
-                label='Street Address' 
-                name='streetAddress' 
-                value={formData.streetAddress} 
-                handleChange={handleChange}
-              />
-              <TextField 
-                id='03' 
-                label='Street Address Line 2' 
-                name='streetAddress2'
-                value={formData.streetAddress2}
-                required={false}
-                handleChange={handleChange}
-              />
-            </div>
-
-            <div className='rsvpSection'>
-              <TextField 
-                id='04' 
-                label='Country' 
-                name='country'
-                value={formData.country} 
-                handleChange={handleChange}
-              />
-              <TextField 
-                id='04' 
-                label='Province' 
-                name='province' 
-                value={formData.province} 
-                handleChange={handleChange}
-              />
-            </div>
-
-            <div className='rsvpSection'>
-              <TextField 
-                id='04' 
-                label='City' 
-                name='city'
-                value={formData.city} 
-                handleChange={handleChange}
-              />
-              <TextField 
-                id='05'
-                label='Postal Code' 
-                name='postalCode'
-                value={formData.postalCode} 
-                handleChange={handleChange}
-              />
-            </div>
-
-            <div className='topMargin topBorder rsvpSection'>
-              <TextField 
-                id='06' 
-                label='Do you have any other notes for the Bride and Groom?' 
-                name='additionalNotes' 
+                id='01' 
+                label='Dietary Restrictions' 
+                name='dietaryRestrictions' 
                 type='textarea' 
-                value={formData.additionalNotes}
+                value={formData.dietaryRestrictions}
                 required={false}
                 handleChange={handleChange}
               />
-            </div>
-          </> }
 
-          <button type='submit' disabled={isLoading || formData.name === '--'} className="rsvpSubmit">
-            {isLoading ? <FontAwesomeIcon icon={faCircleNotch} spin /> : 'Send your RSVP'}
-          </button>
-        </> }
+              <div className='topMargin topBorder rsvpSection'>
+                <TextField 
+                  id='02' 
+                  label='Street Address' 
+                  name='streetAddress' 
+                  value={formData.streetAddress} 
+                  handleChange={handleChange}
+                />
+                <TextField 
+                  id='03' 
+                  label='Street Address Line 2' 
+                  name='streetAddress2'
+                  value={formData.streetAddress2}
+                  required={false}
+                  handleChange={handleChange}
+                />
+              </div>
+
+              <div className='rsvpSection'>
+                <TextField 
+                  id='04' 
+                  label='Country' 
+                  name='country'
+                  value={formData.country} 
+                  handleChange={handleChange}
+                />
+                <TextField 
+                  id='04' 
+                  label='Province' 
+                  name='province' 
+                  value={formData.province} 
+                  handleChange={handleChange}
+                />
+              </div>
+
+              <div className='rsvpSection'>
+                <TextField 
+                  id='04' 
+                  label='City' 
+                  name='city'
+                  value={formData.city} 
+                  handleChange={handleChange}
+                />
+                <TextField 
+                  id='05'
+                  label='Postal Code' 
+                  name='postalCode'
+                  value={formData.postalCode} 
+                  handleChange={handleChange}
+                />
+              </div>
+
+              <div className='topMargin topBorder rsvpSection'>
+                <TextField 
+                  id='06' 
+                  label='Do you have any other notes for the Bride and Groom?' 
+                  name='additionalNotes' 
+                  type='textarea' 
+                  value={formData.additionalNotes}
+                  required={false}
+                  handleChange={handleChange}
+                />
+              </div>
+            </> }
+
+            <button type='submit' disabled={isLoading || formData.name === '--'} className="rsvpSubmit">
+              {isLoading ? <FontAwesomeIcon icon={faCircleNotch} spin /> : 'Send your RSVP'}
+            </button>
+          </> }
         
         <div className='emailDetails'>
           <h4>Have any further questions? Email Kyra:</h4>
