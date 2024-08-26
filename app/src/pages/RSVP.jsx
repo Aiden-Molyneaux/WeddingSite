@@ -142,7 +142,7 @@ export default function RSVP() {
                 handleChange={handleChange}
               />
 
-              <div className='topMargin topBorder rsvpSection'>
+              {/* <div className='topMargin topBorder rsvpSection'>
                 <TextField 
                   id='02' 
                   label='Street Address' 
@@ -192,7 +192,7 @@ export default function RSVP() {
                   value={formData.postalCode} 
                   handleChange={handleChange}
                 />
-              </div>
+              </div> */}
 
               <div className='topMargin topBorder rsvpSection'>
                 <TextField 

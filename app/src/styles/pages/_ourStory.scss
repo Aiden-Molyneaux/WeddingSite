@@ -7,7 +7,7 @@
 }
 
 .entries {
-  margin-top: -80px;
+  margin-top: -45px;
 }
 
 .ourStoryEntry {
@@ -16,15 +16,24 @@
 }
 
 .ourStoryImg {
-  width: 250px;
-  height: auto;
+  width: auto;
+  height: 390px;
   border-radius: 1vh;
+  border-top-right-radius: 0%;
+  border-bottom-right-radius: 0%;
+  border: 1px solid $blue;
+  border-right: none;
 }
 
 .detail {
   width: 250px;
+  height: 380px;
   padding: 5px 10px;
   text-align: left;
   background-color: $white;
+  border-radius: 1vh;
+  border-top-left-radius: 0%;
+  border-bottom-left-radius: 0%;
   border: 1px solid $blue;
+  border-left: none;
 }

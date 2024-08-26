@@ -19,7 +19,7 @@ export default function Home() {
         origin,
         colors: [blush, blue, white]
       });
-    }
+    };
   
     const intervalId = setInterval(() => {
       createConfetti({ x: 0, y: 0 });
@@ -37,11 +37,14 @@ export default function Home() {
   return (
     <div className='homeContent'>
       <h2 className='marriedText'>We are getting married!</h2>
-      <img src={homeImg} alt='Engagement photo' className='homeImg'/>
+      <div className='homeImgContainer'>
+        <img src={homeImg} alt='Engagement photo' className='homeImg'/>
+      </div>
 
-      <Link to='/RSVP' onClick={() => handleClick()}>
+      <Link className='rsvpButtonContainer' to='/RSVP' onClick={() => handleClick()}>
         <button className='rsvpButton'>RSVP</button>
       </Link>
+
     </div>
   );
 }

@@ -10,12 +10,56 @@
   z-index: 1;
 }
 
-.homeImg {
+.homeImgContainer {
+  position: relative;
   width: 900px;
-  height: auto;
-  border-radius: 10px;
-}
+  height: auto; /* height will be determined by the image aspect ratio */
 
+  .homeImg {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+  }
+
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: $blue; /* Replace with your desired color */
+    z-index: 10; /* Ensure it's above the image */
+  }
+
+  &::before {
+    top: -10px;
+    left: -10px;
+    border-top-right-radius: 10px;
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+  }
+
+  &::after {
+    bottom: -10px;
+    right: -10px;
+    border-bottom-left-radius: 10px;
+    clip-path: polygon(100% 100%, 100% 0, 0 100%);
+  }
+
+  /* Optional: additional triangles for top-right and bottom-left corners */
+  .homeImgContainer::before, .homeImgContainer::after {
+    &.corner-top-right {
+      top: -10px;
+      right: -10px;
+      clip-path: polygon(100% 0, 0 0, 100% 100%);
+    }
+
+    &.corner-bottom-left {
+      bottom: -10px;
+      left: -10px;
+      clip-path: polygon(0 100%, 0 0, 100% 100%);
+    }
+  }
+}
 .marriedText {
   position: absolute;
   top: 5px;
@@ -29,20 +73,24 @@
   white-space: nowrap;
 }
 
-.rsvpButton {
+.rsvpButtonContainer {
   position: absolute;
-  bottom: 50px;
   left: 50%;
+  bottom: 40px;
   transform: translateX(-50%);
-  padding: 10px 20px;
-  padding-top: 13px;
-  border: none;
+}
+
+.rsvpButton {
+  width: 120px;
+  height: 60px;
+  border: 2px solid #E0AA3E;
   border-radius: 3px;
   color: $white;
   font-family: $content-font;
   font-size: 1.5em;
   background: linear-gradient(45deg, #F9F295, #E0AA3E, #E0AA3E, #B88A44);
   animation: homePulse 2s infinite;
+  transition: all 0.5s ease;
 
   &:hover {
     scale: 1.1;
@@ -52,12 +100,12 @@
 
 @keyframes homePulse {
   0% {
-    transform: translateX(-50%) scale(1);
+    transform: scale(1);
   }
   50% {
-    transform: translateX(-50%) scale(1.05);
+    transform: scale(1.05);
   }
   100% {
-    transform: translateX(-50%) scale(1);
+    transform: scale(1);
   }
 }
