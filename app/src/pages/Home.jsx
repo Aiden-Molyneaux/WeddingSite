@@ -1,7 +1,10 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import homeImg from '../assets/homeImg.jpg';
+import useWindowSize from '../utils/useWindowState.js';
+import homeImgMobile from '../assets/homeImgMobile.png';
 import confetti from 'canvas-confetti';
+import HomeMobile from './HomeMobile.jsx';
 
 export default function Home() {
   useEffect(() => {
@@ -30,21 +33,27 @@ export default function Home() {
     return () => clearInterval(intervalId);
   }, []);
 
+  const { width } = useWindowSize();
+
   function handleClick() {
     window.localStorage.setItem('location', JSON.stringify({ path: '/RSVP' }));
   }
 
   return (
-    <div className='homeContent'>
-      <h2 className='marriedText'>We are getting married!</h2>
-      <div className='homeImgContainer'>
-        <img src={homeImg} alt='Engagement photo' className='homeImg'/>
+    width <= 750
+      ? <HomeMobile handleRSVPClick={handleClick}/>
+      : <div className='homeContent'>
+        <h2 className='marriedText'>We are getting married!</h2>
+        <div className='homeImgContainer'>
+          { width <= 750
+            ? <img src={homeImgMobile} alt='Engagement photo' className='homeImg'/>
+            : <img src={homeImg} alt='Engagement photo' className='homeImg'/>
+          }
+        </div>
+
+        <Link className='rsvpButtonContainer' to='/RSVP' onClick={() => handleClick()}>
+          <button className='rsvpButton'>RSVP</button>
+        </Link>
       </div>
-
-      <Link className='rsvpButtonContainer' to='/RSVP' onClick={() => handleClick()}>
-        <button className='rsvpButton'>RSVP</button>
-      </Link>
-
-    </div>
   );
 }

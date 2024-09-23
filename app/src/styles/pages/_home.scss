@@ -11,9 +11,7 @@
 }
 
 .homeImgContainer {
-  position: relative;
   width: 900px;
-  height: auto; /* height will be determined by the image aspect ratio */
 
   .homeImg {
     width: 100%;
@@ -21,45 +19,8 @@
     border-radius: 10px;
     display: block;
   }
-
-  &::before, &::after {
-    content: '';
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background-color: $blue; /* Replace with your desired color */
-    z-index: 10; /* Ensure it's above the image */
-  }
-
-  &::before {
-    top: -10px;
-    left: -10px;
-    border-top-right-radius: 10px;
-    clip-path: polygon(0 0, 100% 0, 0 100%);
-  }
-
-  &::after {
-    bottom: -10px;
-    right: -10px;
-    border-bottom-left-radius: 10px;
-    clip-path: polygon(100% 100%, 100% 0, 0 100%);
-  }
-
-  /* Optional: additional triangles for top-right and bottom-left corners */
-  .homeImgContainer::before, .homeImgContainer::after {
-    &.corner-top-right {
-      top: -10px;
-      right: -10px;
-      clip-path: polygon(100% 0, 0 0, 100% 100%);
-    }
-
-    &.corner-bottom-left {
-      bottom: -10px;
-      left: -10px;
-      clip-path: polygon(0 100%, 0 0, 100% 100%);
-    }
-  }
 }
+
 .marriedText {
   position: absolute;
   top: 5px;
@@ -107,5 +68,34 @@
   }
   100% {
     transform: scale(1);
+  }
+}
+
+@media (max-width: 750px) {
+  .homeContent {
+    margin: 250px;
+    gap: 0px;
+  }
+  .marriedTextMobile {
+    position: relative;
+    color: $blue;
+    font-size: 2.25em;
+    font-family: $wedding-font;
+    font-weight: 700;
+  }
+  .ourNames {
+    font-family: $wedding-font;
+    font-size: 3.5em;
+    font-weight: 700;
+  }
+  .dateInfo {
+    font-size: 1.5em;
+  }
+  .locationInfo {
+    font-size: 1.25em;
+  }
+  .homeImgContainer {
+    margin-right: 10px;
+    width: 150vw;
   }
 }
