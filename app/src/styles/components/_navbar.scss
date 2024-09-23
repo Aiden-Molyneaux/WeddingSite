@@ -66,17 +66,15 @@
 
 .mobileMenuButtonContainer {
   @include flex(column, center, center);
-  flex: 1;
   height: 100%;
+  margin-right: 20px;
 }
 
 .mobileMenuButton {
-  padding: 3px 6px;
-  background-color: $blue;
-  border: 1px solid $pink;
-  border-radius: 3px;
-  color: $white;
-  font-size: 1.5em;
+  background: none;
+  border: none;
+  color: $blue;
+  font-size: 2em;
 }
 
 .mobileMenu {
@@ -113,3 +111,26 @@
   color: $white;
   font-size: 1.5em;
 }
+
+@media (max-width: 750px) {
+  .navbar {
+    margin-top: 20px;
+  }
+  .navbarContent {
+    width: 100vw;
+    justify-content: space-between;
+  }
+  .navbarName {
+    margin-top: 4px;
+    margin-left: 20px;
+    font-size: 1.5em;
+    font-weight: 700;
+  }
+  .smallerFont {
+    font-size: 0.66em;
+  }
+  .rightFlower {
+    display: none;
+  }
+}
+

@@ -2,42 +2,9 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faCircleNotch } from '@fortawesome/free-solid-svg-icons';
 import SongRequestForm from '../components/SongRequestForm';
+import { attendees } from './attendees';
 
 export default function MusicRequests() {
-  const attendees = [
-    { id: '00', name: '--', plusOne: true },
-    { id: '01', name: 'Andrew Kozaris', plusOne: false },
-    { id: '02', name: 'Bryan Molyneaux', plusOne: false },
-    { id: '03', name: 'Brittney King', plusOne: false },
-    { id: '04', name: 'Camille Daoust', plusOne: false },
-    { id: '05', name: 'Carl Molyneaux', plusOne: false },
-    { id: '06', name: 'Carrie Skidmore', plusOne: false },
-    { id: '07', name: 'Dakotah Molyneaux', plusOne: false },
-    { id: '08', name: 'Darius Jones', plusOne: false },
-    { id: '09', name: 'Deborah Foley', plusOne: false },
-    { id: '10', name: 'Erica Edwards', plusOne: true },
-    { id: '11', name: 'Hayden McKnight', plusOne: true },
-    { id: '12', name: 'Janet Basaraba', plusOne: true },
-    { id: '13', name: 'John Placeholder', plusOne: false },
-    { id: '14', name: 'Josh Armstrong', plusOne: false },
-    { id: '15', name: 'Justin Basaraba', plusOne: true },
-    { id: '16', name: 'Katelyn Basaraba', plusOne: false },
-    { id: '17', name: 'Katherine Basaraba', plusOne: false },
-    { id: '18', name: 'Kennedy Basaraba-Hoyte', plusOne: true },
-    { id: '19', name: 'Kevin Choffe', plusOne: false },
-    { id: '20', name: 'Myranda Ruel', plusOne: false },
-    { id: '21', name: 'Patrick Foley', plusOne: false },
-    { id: '22', name: 'Patrick Kye Foley', plusOne: false },
-    { id: '23', name: 'Rebecca Molyneaux', plusOne: false },
-    { id: '24', name: 'Richard Winter', plusOne: false },
-    { id: '25', name: 'Stephanie Winter', plusOne: false },
-    { id: '26', name: 'Tracy Basaraba', plusOne: false },
-    { id: '27', name: 'Trishauna Hyatt', plusOne: true },
-    { id: '28', name: 'Tyler Street', plusOne: false },
-    { id: '29', name: 'Victoria Kalonomos', plusOne: false },
-    { id: '30', name: 'Zack Cameron Hackett', plusOne: false },
-    { id: '31', name: 'Zach McCracken', plusOne: false },
-  ];
   const [userName, setUserName] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);

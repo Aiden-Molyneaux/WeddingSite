@@ -1,0 +1,23 @@
+export const attendees = [
+  { id: '00', name: '--', plusOne: false, twoRSVP: false },
+  { id: '01', name: 'Bryan Molyneaux & Myranda Ruel', plusOne: false, twoRSVP: true },
+  { id: '02', name: 'Carl Molyneaux & Brittney King', plusOne: false, twoRSVP: true },
+  { id: '03', name: 'Dakotah Molyneaux', plusOne: true, twoRSVP: false },
+  { id: '04', name: 'Darius Jones & Carrie Skidmore', plusOne: false, twoRSVP: true },
+  { id: '05', name: 'Deborah Foley and Patrick Foley', plusOne: false, twoRSVP: true },
+  { id: '06', name: 'Erica Edwards', plusOne: true, twoRSVP: false },
+  { id: '07', name: 'Hayden McKnight', plusOne: true, twoRSVP: false },
+  { id: '08', name: 'Janet Basaraba', plusOne: true, twoRSVP: false },
+  { id: '09', name: 'Josh Armstrong', plusOne: false, twoRSVP: false },
+  { id: '10', name: 'Justin Basaraba', plusOne: true, twoRSVP: false },
+  { id: '11', name: 'Katelyn Basaraba & Tracy Basaraba', plusOne: false, twoRSVP: true },
+  { id: '12', name: 'Katherine Basaraba & John Placeholder', plusOne: false, twoRSVP: true },
+  { id: '13', name: 'Kennedy Basaraba-Hoyte', plusOne: true, twoRSVP: false },
+  { id: '14', name: 'Patrick Kye Foley & Camille Daoust', plusOne: false, twoRSVP: true },
+  { id: '15', name: 'Rebecca Molyneaux & Kevin Choffe', plusOne: false, twoRSVP: true },
+  { id: '16', name: 'Stephanie Winter & Richard Winter', plusOne: false, twoRSVP: true },
+  { id: '17', name: 'Trishauna Hyatt', plusOne: true, twoRSVP: false },
+  { id: '18', name: 'Tyler Street & Zach McCracken', plusOne: false, twoRSVP: true },
+  { id: '19', name: 'Victoria Kalonomos & Andrew Kozaris', plusOne: false, twoRSVP: true },
+  { id: '20', name: 'Zack Cameron Hackett', plusOne: false, twoRSVP: false }
+];

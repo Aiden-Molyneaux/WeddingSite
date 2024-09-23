@@ -2,17 +2,9 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaperPlane, faCircleNotch } from '@fortawesome/free-solid-svg-icons';
 import TextField from '../components/TextField.jsx';
+import { attendees } from './attendees.js';
 
 export default function RSVP() {
-  const attendees = [
-    { id: '00', name: '--', plusOne: false },
-    { id: '01', name: 'Bryan Molyneaux', plusOne: false },
-    { id: '02', name: 'Carl Molyneaux', plusOne: false },
-    { id: '03', name: 'Dakotah Molyneaux', plusOne: false },
-    { id: '04', name: 'Trishauna Hyatt', plusOne: true },
-    { id: '05', name: 'Rebecca Molyneaux', plusOne: false },
-  ];
-
   const [formData, setFormData] = useState({
     name: '--',
     acceptPlusOne: false,
@@ -55,8 +47,6 @@ export default function RSVP() {
         setIsLoading(false);
       });
   }
-
-  console.log(formData);
 
   return (
     <div className='pageContent'>
@@ -119,7 +109,7 @@ export default function RSVP() {
                   </select>
                 </div>
 
-                { formData.acceptPlusOne && 
+                { (formData.acceptPlusOne || attendees.find(attendee => attendee.name === formData.name).twoRSVP) && 
                 <div className='rsvpField'>
                   <label>Guest meal choice</label>
                   <select className='rsvpSelect' name="mealChoicePlusOne" value={formData.mealChoicePlusOne} onChange={handleChange}>
