@@ -15,3 +15,9 @@
   color: $dark-blue;
   border-bottom: 2px solid $blue;
 }
+
+@media (max-width: 750px) {
+  .actionButtonText {
+    color: $white;
+  }
+}
