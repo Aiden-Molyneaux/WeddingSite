@@ -1,12 +1,15 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
+import useWindowSize from '../utils/useWindowState.js';
 import FAQCard from '../components/FAQCard';
 
 export default function FAQ() {
   const setLocation = () => {
     window.localStorage.setItem('location', JSON.stringify({ path: '/RSVP' }));
   };
+
+  const { width } = useWindowSize();
 
   const faqData = [
     {
@@ -66,19 +69,25 @@ export default function FAQ() {
   return (
     <div className='pageContent'>
       <h3 className='sectionHeader'>Frequently Asked Questions</h3>
-      <div className='faqStacks'>
-        <div className='faqStack'>
-          {firstHalf.map((faq, index) => (
+      { width <= 750
+        ? <div className='faqStack'>
+          {faqData.map((faq, index) => (
             <FAQCard key={index} question={faq.question} answer={faq.answer} />
           ))}
         </div>
-        <div className='faqStack'>
-          {secondHalf.map((faq, index) => (
-            <FAQCard key={index} question={faq.question} answer={faq.answer} />
-          ))}
+        : <div className='faqStacks'>
+          <div className='faqStack'>
+            {firstHalf.map((faq, index) => (
+              <FAQCard key={index} question={faq.question} answer={faq.answer} />
+            ))}
+          </div>
+          <div className='faqStack'>
+            {secondHalf.map((faq, index) => (
+              <FAQCard key={index} question={faq.question} answer={faq.answer} />
+            ))}
+          </div>
         </div>
-      </div>
-
+      }
       <div className='emailDetails'>
         <h4>Have any further questions? Email Kyra:</h4>
         <a href='mailto:kyramolyneaux@gmail.com' className='experienceName bottomMargin' id='emailLink' >kyramolyneaux@gmail.com <FontAwesomeIcon icon={faPaperPlane}/></a>

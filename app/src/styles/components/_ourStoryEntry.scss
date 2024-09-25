@@ -1,6 +1,11 @@
 .cursorBar {
   @include flex(row, center, flex-end);
   gap: 20px;
+}
+
+.hmm {
+  @include flex(row, center, flex-end);
+  gap: 20px;
   height: 50px;
   transition: all 1s ease;
 }
@@ -40,4 +45,23 @@
   background-color: $blue;
   transition: all 1s ease;
 }
+
+@media (max-width: 750px) {
+  .cursorBar {
+    @include flex(column, center, flex-end);
+  }
+  .cursorButtons > button {
+    // font-size: 1em;
+  }
+  .activeEntry {
+    width: 40px;
+    padding: 4px 5px;
+    font-size: 1em;
+  }
+  .inactiveEntry {
+    width: 40px;
+    font-size: 1em;
+  }
+}
+
 

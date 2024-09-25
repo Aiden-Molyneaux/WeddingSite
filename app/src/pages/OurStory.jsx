@@ -14,36 +14,39 @@ export default function OurStory() {
           <OurStoryEntry date={activeEntry.toString()}/>
         </div>
         <div className='cursorBar'>
-          <div> { activeEntry === 2019
-            ? <h3 className='activeEntry'>2019</h3>
-            : <div className='inactiveEntry'></div>
-          }
+          <div className='hmm'>
+            <div> { activeEntry === 2019
+              ? <h3 className='activeEntry'>2019</h3>
+              : <div className='inactiveEntry'></div>
+            }
+            </div>
+            <div> { activeEntry === 2020
+              ? <h3 className='activeEntry'>2020</h3>
+              : <h3 className='inactiveEntry'></h3>
+            }
+            </div>
+            <div> { activeEntry === 2021
+              ? <h3 className='activeEntry'>2021</h3>
+              : <h3 className='inactiveEntry'></h3>
+            }
+            </div>
+            <div> { activeEntry === 2022
+              ? <h3 className='activeEntry'>2022</h3>
+              : <h3 className='inactiveEntry'></h3>
+            }
+            </div>
+            <div> { activeEntry === 2023
+              ? <h3 className='activeEntry'>2023</h3>
+              : <h3 className='inactiveEntry'></h3>
+            }
+            </div>
+            <div> { activeEntry === 2024
+              ? <h3 className='activeEntry'>2024</h3>
+              : <h3 className='inactiveEntry'></h3>
+            }
+            </div>
           </div>
-          <div> { activeEntry === 2020
-            ? <h3 className='activeEntry'>2020</h3>
-            : <h3 className='inactiveEntry'></h3>
-          }
-          </div>
-          <div> { activeEntry === 2021
-            ? <h3 className='activeEntry'>2021</h3>
-            : <h3 className='inactiveEntry'></h3>
-          }
-          </div>
-          <div> { activeEntry === 2022
-            ? <h3 className='activeEntry'>2022</h3>
-            : <h3 className='inactiveEntry'></h3>
-          }
-          </div>
-          <div> { activeEntry === 2023
-            ? <h3 className='activeEntry'>2023</h3>
-            : <h3 className='inactiveEntry'></h3>
-          }
-          </div>
-          <div> { activeEntry === 2024
-            ? <h3 className='activeEntry'>2024</h3>
-            : <h3 className='inactiveEntry'></h3>
-          }
-          </div>
+        
           <div className='cursorButtons'>
             <button 
               disabled={activeEntry === 2019}

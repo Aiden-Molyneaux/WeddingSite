@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ActionButton from './ActionButton.jsx';
-import leftFlower from '../assets/leftFlower.jpg';
-import rightFlower from '../assets/rightFlower.jpg';
 
 export default function NavbarMobile({routes, isMenuOpen, toggleMenu}) {
   NavbarMobile.propTypes = {
@@ -13,15 +11,13 @@ export default function NavbarMobile({routes, isMenuOpen, toggleMenu}) {
 
   return (
     <div className='navbar'>
-      <img src={leftFlower} alt='flower' className='leftFlower'/>
-      <img src={rightFlower} alt='flower' className='rightFlower'/>
       <div className='navbarContent'>
-        <h2 className='navbarName'>
-          <span>Kyra <span className='smallerFont'>+</span> Aiden</span>
+        <h2 className={`navbarName ${isMenuOpen ? 'menuOpenedNameChange' : ''}`}>
+          <span className=''>Kyra <span className='smallerFont'>+</span> Aiden</span>
         </h2>
  
         <div className='mobileMenuButtonContainer'>
-          <button onClick={() => toggleMenu()} className='mobileMenuButton'>☰</button>
+          <button onClick={() => toggleMenu()} className={`mobileMenuButton ${isMenuOpen ? 'menuOpenedNameChange' : ''}`}>☰</button>
         </div>
 
       </div>

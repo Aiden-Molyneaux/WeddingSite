@@ -6,7 +6,7 @@
   width: 100vw;
   font-family: $content-font;
   transition: all 0.5s ease;
-  z-index: 1;
+  z-index: 0;
 }
 
 .navbarContent {
@@ -36,8 +36,8 @@
   top: -200px;
   left: -100px;
   transform: rotate(135deg) scaleX(-1);
-  border-radius: 50px;;
-  z-index: -1;
+  border-radius: 50px;
+  z-index: 0;
 }
 
 .rightFlower {
@@ -45,9 +45,9 @@
   position: absolute;
   top: -220px;
   right: -100px;
-  transform: rotate(225deg);
-  border-radius: 50px;;
-  z-index: -1;
+  transform: rotate(225deg) scaleX(-1);
+  border-radius: 50px;
+  z-index: 0;
 }
 
 @media (max-width: 1550px) {
@@ -66,15 +66,16 @@
 
 .mobileMenuButtonContainer {
   @include flex(column, center, center);
+
   height: 100%;
   margin-right: 20px;
 }
 
 .mobileMenuButton {
+  color: $blue;
+  font-size: 2.25em;
   background: none;
   border: none;
-  color: $blue;
-  font-size: 2.5em;
 }
 
 .mobileMenu {
@@ -89,7 +90,6 @@
   height: 100%;
   background-color: transparent;
   opacity: 0;
-  z-index: 2;
   transition: opacity 0.5s linear, background-color 0.5s linear;
 }
 
@@ -102,22 +102,36 @@
 
 .mobileMenuExitButton {
   align-self: center;
-  margin-top: 15px;
-  padding: 4px 12px;
-  background-color: $blue;
-  border: 1px solid $pink;
+
+  background: none;
+  border: none;
   border-radius: 3px;
   color: $white;
-  font-size: 1.5em;
+  font-size: 3em;
+  line-height: .5;
+}
+
+.menuOpenedNameChange {
+  color: $pink;
 }
 
 @media (max-width: 750px) {
   .navbar {
     margin-top: 20px;
   }
+  .mobileMenu {
+    width: 100vw;
+  }
   .navbarContent {
     width: 100vw;
     justify-content: space-between;
+    z-index: 3;
+  }
+  .navButtons {
+    @include flex(column, center, center);
+    gap: 20px;
+    color: $white;
+    border-top: none;
   }
   .navbarName {
     margin-top: 4px;
@@ -128,12 +142,15 @@
   .smallerFont {
     font-size: 0.66em;
   }
+  .leftFlower {
+    top: 150px;
+    left: 0;
+    width: 100vw;
+    transform: rotate(360deg);
+    z-index: -1;
+  }
   .rightFlower {
     display: none;
-  }
-  .navButtons {
-    @include flex(column, center, center);
-    color: $white;
   }
 }
 

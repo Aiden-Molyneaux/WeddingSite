@@ -11,6 +11,8 @@ import MusicRequests from './pages/MusicRequests.jsx';
 import FAQ from './pages/FAQ.jsx';
 import RSVP from './pages/RSVP.jsx';
 import Footer from './components/Footer.jsx';
+import leftFlower from './assets/flower3.png';
+import rightFlower from './assets/rightFlower.jpg';
 
 function App() {
   const navigate = useNavigate();
@@ -25,8 +27,12 @@ function App() {
     }
   }, []);
 
+  console.log(location);
+
   return (
     <>
+      <img src={leftFlower} alt='flower' className='leftFlower'/>
+      <img src={rightFlower} alt='flower' className='rightFlower'/>
       <Navbar/>
       <Routes>
         <Route path="/" element={<Home/>}></Route>
@@ -38,7 +44,7 @@ function App() {
         <Route path="/FAQ" element={<FAQ/>}></Route>
         <Route path="/RSVP" element={<RSVP/>}></Route>
       </Routes>
-      <Footer/>
+      { location && location.pathname !== '/home' ? <Footer/> : null }
     </> 
   );
 }

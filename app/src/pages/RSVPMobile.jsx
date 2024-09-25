@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaperPlane, faCircleNotch } from '@fortawesome/free-solid-svg-icons';
-import useWindowSize from '../utils/useWindowState.js';
 import TextField from '../components/TextField.jsx';
 import { attendees } from './attendees.js';
 
-export default function RSVP() {
+export default function RSVPMobile() {
   const [formData, setFormData] = useState({
     name: '--',
     acceptPlusOne: false,
@@ -25,8 +24,6 @@ export default function RSVP() {
   
   const [isLoading, setIsLoading] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
-
-  const { width } = useWindowSize();
 
   function handleChange(event) {
     const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
@@ -51,7 +48,7 @@ export default function RSVP() {
       });
   }
 
-  const RSVPDesktop = () => (
+  return (
     <div className='pageContent'>
       <form onSubmit={handleSubmit} className='rvspForm'>
         <h3 className='sectionHeader'>RSVP</h3>
@@ -94,7 +91,7 @@ export default function RSVP() {
 
               <div>
                 { formData.acceptPlusOne &&
-                  <TextField id='02' label= 'Name of your plus one:' name='namePlusOne' type='input' value={formData.namePlusOne} handleChange={handleChange}/>
+                  <TextField id='02' label= 'Name of your plus one' name='namePlusOne' type='input' value={formData.namePlusOne} handleChange={handleChange}/>
                 }
               </div>
             </>
@@ -214,9 +211,4 @@ export default function RSVP() {
       </form>
     </div>    
   );
-
-  return (
-    <RSVPDesktop/>
-  );
-  
 }

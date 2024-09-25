@@ -2,8 +2,10 @@
 
 #root {
   @include flex(column, auto, center);
+  position: relative;
+  overflow-x: hidden;
   overflow-y: scroll;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   text-align: center;
   line-height: 1.5;
@@ -13,6 +15,8 @@
   font-weight: 400;
   background-color: $blush;
   overflow-x: hidden;
+  
+  z-index: 2;
 }
 
 h1 {
@@ -53,9 +57,10 @@ a {
 
 .pageContent {
   @include flex(column, center, center);
+  position: relative;
   width: 100%;
   animation: fadeIn .5s ease-in-out;
-  z-index: 1;
+  z-index: -1;
 }
 
 @keyframes fadeIn {
@@ -80,4 +85,11 @@ a {
 
 .bottomMargin {
   margin-bottom: 15px;
+}
+
+@media (max-width: 750px) {
+  .sectionHeader {
+    padding-bottom: 0px;
+    white-space: wrap;
+  }
 }
