@@ -37,3 +37,29 @@
   border: 1px solid $blue;
   border-left: none;
 }
+
+@media (max-width: 750px) {
+  .ourStoryContent {
+    width: 100vw;
+    background-image: none;
+  }
+  .entries {
+    width: 100%;
+  }
+  .ourStoryEntry {
+    @include flex(column, center, center);
+    height: 650px;
+    width: 100%;
+  }
+  .ourStoryImg {
+    border: 1px solid $blue;
+    border-radius: 1vh;
+  }
+  .detail {
+    width: 80%;
+    height: auto;
+    margin-top: -50px;
+    border: 1px solid $blue;
+    border-radius: 1vh;
+  }
+}

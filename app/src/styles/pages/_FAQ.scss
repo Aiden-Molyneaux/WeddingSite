@@ -28,3 +28,11 @@
   text-decoration: underline;
   text-underline-offset: 2px;
 }
+
+@media (max-width: 750px) {
+
+  .faqStack {
+    @include flex(column, center, center);
+    width: 80%;
+  }
+}

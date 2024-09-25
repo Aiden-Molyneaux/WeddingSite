@@ -21,32 +21,33 @@ export default function Navbar() {
   function toggleMenu() {
     setIsMenuOpen(!isMenuOpen);
   }
-  
-  return (
-    width <= 750 
-      ? <NavbarMobile routes={routes} isMenuOpen={isMenuOpen} toggleMenu={toggleMenu}/>
-      :  
-      <div className='navbar'>
-        <img src={leftFlower} alt='flower' className='leftFlower'/>
-        <img src={rightFlower} alt='flower' className='rightFlower'/>
-        <div className='navbarContent'>
-          <h2 className='navbarName'>
-            <span>Kyra <span className='smallerFont'>&</span> Aiden</span>
-          </h2>
-        </div>
 
-        <h2 className='navBarInfo'>September 20, 2025 • Perth, ON</h2>
-
-        <div className='navButtons'>
-          { routes.map(route => (
-            <ActionButton
-              key={route.id}
-              id={route.id} 
-              path={route.path} 
-              name={route.name}
-            />
-          ))}
-        </div>
+  const NavbarDesktop = () => (
+    <div className='navbar'>
+      <div className='navbarContent'>
+        <h2 className='navbarName'>
+          <span>Kyra <span className='smallerFont'>&</span> Aiden</span>
+        </h2>
       </div>
+
+      <h2 className='navBarInfo'>September 20, 2025 • Perth, ON</h2>
+
+      <div className='navButtons'>
+        { routes.map(route => (
+          <ActionButton
+            key={route.id}
+            id={route.id} 
+            path={route.path} 
+            name={route.name}
+          />
+        ))}
+      </div>
+    </div>
+  );
+  
+  return ( 
+    width <= 750  
+      ? <NavbarMobile routes={routes} isMenuOpen={isMenuOpen} toggleMenu={toggleMenu}/>
+      : <NavbarDesktop/>
   );
 }

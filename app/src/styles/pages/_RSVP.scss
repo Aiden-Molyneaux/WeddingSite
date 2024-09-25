@@ -99,3 +99,12 @@
   padding-top: 15px;
   border-top: 2px solid $blue;
 }
+
+@media(max-width: 750px)  {
+  .rvspForm {
+    @include flex(column, center, center);
+  }
+  .rsvpSection {
+    @include flex(column, center, center);
+  }
+}
