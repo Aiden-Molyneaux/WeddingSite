@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
-import useWindowSize from '../utils/useWindowState.js';
+import useIsMobile from '../utils/useIsMobile.js';
 import ActionButton from './ActionButton.jsx';
-import leftFlower from '../assets/leftFlower.jpg';
-import rightFlower from '../assets/rightFlower.jpg';
-import NavbarMobile from './NavbarMobile.jsx';
 
 export default function Navbar() {
   const routes = [
@@ -15,39 +12,53 @@ export default function Navbar() {
     { id: '06', path: '/RSVP', name: 'RSVP' }
   ];
 
-  const { width } = useWindowSize();
+  const isMobile = useIsMobile();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   function toggleMenu() {
     setIsMenuOpen(!isMenuOpen);
   }
 
-  const NavbarDesktop = () => (
+  const RouteButtons = () => (
+    <div className='navButtons'>
+      { routes.map(route => (
+        <ActionButton
+          key={route.id}
+          id={route.id} 
+          path={route.path} 
+          name={route.name}
+          toggleMenu={toggleMenu}
+        />
+      ))}
+      { isMobile && <button onClick={toggleMenu} className='mobileMenuExitButton'>×</button>}
+    </div>
+  );
+
+  const MobileRouteButtons = () => (
+    <div className={`mobileMenu ${isMenuOpen ? 'mobileMenuOpen' : ''}`}>
+      <RouteButtons/>
+    </div>
+  );
+
+  const MobileMenuButton = () => (
+    <div className='mobileMenuButtonContainer'>
+      <button onClick={() => toggleMenu()} className='mobileMenuButton'>☰</button>
+    </div>
+  );
+  
+  return (
     <div className='navbar'>
       <div className='navbarContent'>
         <h2 className='navbarName'>
           <span>Kyra <span className='smallerFont'>&</span> Aiden</span>
         </h2>
+
+        { isMobile && <MobileMenuButton/>}
       </div>
 
-      <h2 className='navBarInfo'>September 20, 2025 • Perth, ON</h2>
+      { !isMobile && <h2 className='navBarInfo'>September 20, 2025 • Perth, ON</h2> }
 
-      <div className='navButtons'>
-        { routes.map(route => (
-          <ActionButton
-            key={route.id}
-            id={route.id} 
-            path={route.path} 
-            name={route.name}
-          />
-        ))}
-      </div>
+      { isMobile ? <MobileRouteButtons/> : <RouteButtons/> }
     </div>
-  );
-  
-  return ( 
-    width <= 750  
-      ? <NavbarMobile routes={routes} isMenuOpen={isMenuOpen} toggleMenu={toggleMenu}/>
-      : <NavbarDesktop/>
   );
 }

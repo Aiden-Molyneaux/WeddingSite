@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import useIsMobile from '../utils/useIsMobile.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faCircleNotch } from '@fortawesome/free-solid-svg-icons';
 import SongRequestForm from '../components/SongRequestForm';
@@ -9,6 +10,8 @@ export default function MusicRequests() {
   const [isLoading, setIsLoading] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [songList, setSongList] = useState([{ id: 1 }]);
+
+  const isMobile = useIsMobile();
 
   function addSong() {
     setSongList([...songList, { id: songList.length }]); // Add a new song form
@@ -32,8 +35,6 @@ export default function MusicRequests() {
       });
   }
 
-  console.log(songList);
-
   return (
     <div className='pageContent'>
       <form onSubmit={handleSubmit} className='musicRequestForm'>
@@ -42,7 +43,7 @@ export default function MusicRequests() {
         { formSubmitted 
           ? <h6 className='bottomMargin topMargin'>Your music request has been sent Kyra and Aiden!</h6>
           : <>
-            <div className='rsvpSection'>
+            <div className={isMobile ? 'rsvpField' : 'rsvpSection'}>
               <label>Who are you?</label>
               <select name="name" className='rsvpSelect' value={userName} onChange={() => setUserName(event.target.value)}>
                 {attendees.map((attendee, index) => (

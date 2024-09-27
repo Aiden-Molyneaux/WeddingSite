@@ -60,6 +60,10 @@
   }
 }
 
+select option {
+  font-size: 1em;
+}
+
 .rsvpSubmit {
   align-self: center;
   margin: 25px;
@@ -103,8 +107,25 @@
 @media(max-width: 750px)  {
   .rvspForm {
     @include flex(column, center, center);
+    width: 100%;
+  }
+  .rsvpField {
+    @include flex(column, center, center);
+    width: 100%;
+    max-width: 80vw;
+  }
+  .rsvpSelect {
+    width: 80%;
+    text-align: center;
+  }
+  .rsvpField label {
+    font-size: 1.25em;
   }
   .rsvpSection {
+    @include flex(row, center, center);
+    width: 80%;
+  }
+  .rsvpSection.column {
     @include flex(column, center, center);
   }
 }
