@@ -14,7 +14,7 @@ export default function OurStory() {
           <OurStoryEntry date={activeEntry.toString()}/>
         </div>
         <div className='cursorBar'>
-          <div className='hmm'>
+          <div className='cursorCards'>
             <div> { activeEntry === 2019
               ? <h3 className='activeEntry'>2019</h3>
               : <div className='inactiveEntry'></div>

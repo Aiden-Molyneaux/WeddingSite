@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
+import useIsMobile from '../utils/useIsMobile.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaperPlane, faCircleNotch } from '@fortawesome/free-solid-svg-icons';
-import useWindowSize from '../utils/useWindowState.js';
 import TextField from '../components/TextField.jsx';
 import { attendees } from './attendees.js';
 
@@ -26,7 +26,7 @@ export default function RSVP() {
   const [isLoading, setIsLoading] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
 
-  const { width } = useWindowSize();
+  const isMobile = useIsMobile();
 
   function handleChange(event) {
     const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
@@ -51,7 +51,46 @@ export default function RSVP() {
       });
   }
 
-  const RSVPDesktop = () => (
+  function findAttendee() {
+    return attendees.find(attendee => attendee.name === formData.name);
+  }
+
+  const NameForm = () => (
+    <>
+      <div className='rsvpField'>
+        <label htmlFor='name'>Who are you?</label>
+        <select name="name" className='rsvpSelect' value={formData.name} onChange={handleChange}>
+          {attendees.map((attendee, index) => (
+            <option key={index} value={attendee.name}>
+              {attendee.name}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      <div className='rsvpField'>
+        <h6>Will you be attending?</h6>
+        <select className='rsvpSelect' name="willAttend" value={formData.willAttend} onChange={handleChange}>
+          <option value='yes'>Happy to be there! 😊</option>
+          <option value='no'>So sad to miss it! 😥</option>
+        </select>
+      </div>
+    </>
+  );
+
+  const DietaryRestrictions = () => (
+    <TextField 
+      id='01' 
+      label='Dietary Restrictions' 
+      name='dietaryRestrictions' 
+      type='textarea' 
+      value={formData.dietaryRestrictions}
+      required={false}
+      handleChange={handleChange}
+    />
+  );
+
+  return (
     <div className='pageContent'>
       <form onSubmit={handleSubmit} className='rvspForm'>
         <h3 className='sectionHeader'>RSVP</h3>
@@ -59,31 +98,15 @@ export default function RSVP() {
         { formSubmitted 
           ? <h6 className='bottomMargin topMargin'>You have successfully RSVP'd to Kyra and Aiden's wedding!</h6>
           : <>
-            <div className='rsvpSection'>
-              <div className='rsvpField'>
-                <label htmlFor='name'>Who are you?</label>
-                <select name="name" className='rsvpSelect' value={formData.name} onChange={handleChange}>
-                  {attendees.map((attendee, index) => (
-                    <option key={index} value={attendee.name}>
-                      {attendee.name}
-                    </option>
-                  ))}
-                </select>
-              </div>
+            { isMobile 
+              ? <NameForm/>
+              : <div className='rsvpSection'><NameForm/></div>
+            }
 
-              <div className='rsvpField'>
-                <h6>Will you be attending?</h6>
-                <select className='rsvpSelect' name="willAttend" value={formData.willAttend} onChange={handleChange}>
-                  <option value='yes'>Happy to be there! 😊</option>
-                  <option value='no'>So sad to miss it! 😥</option>
-                </select>
-              </div>
-            </div>
-
-            { attendees.find(attendee => attendee.name === formData.name).plusOne &&
+            { findAttendee().plusOne &&
             <>
               <div className='rsvpSection'>
-                <label>★ You have been given a plus one! Accept?</label>
+                <label>{ isMobile ? '★ You have a plus one! Accept?' : '★ You have been given a plus one! Accept?'}</label>
                 <input 
                   type="checkbox" 
                   name="acceptPlusOne" 
@@ -92,7 +115,7 @@ export default function RSVP() {
                 />
               </div>
 
-              <div>
+              <div className={isMobile ? 'rsvpSection' : ''}>
                 { formData.acceptPlusOne &&
                   <TextField id='02' label= 'Name of your plus one:' name='namePlusOne' type='input' value={formData.namePlusOne} handleChange={handleChange}/>
                 }
@@ -101,7 +124,7 @@ export default function RSVP() {
             }
           
             { formData.willAttend === 'yes' && <>
-              <div className='topMargin rsvpSection topBorder'>
+              <div className='topMargin rsvpSection column topBorder'>
                 <div className='rsvpField'>
                   <label>Your meal choice</label>
                   <select className='rsvpSelect' name="mealChoice" value={formData.mealChoice} onChange={handleChange}>
@@ -112,7 +135,7 @@ export default function RSVP() {
                   </select>
                 </div>
 
-                { (formData.acceptPlusOne || attendees.find(attendee => attendee.name === formData.name).twoRSVP) && 
+                { (formData.acceptPlusOne || findAttendee().twoRSVP) && 
                 <div className='rsvpField'>
                   <label>Guest meal choice</label>
                   <select className='rsvpSelect' name="mealChoicePlusOne" value={formData.mealChoicePlusOne} onChange={handleChange}>
@@ -122,70 +145,12 @@ export default function RSVP() {
                     <option value='Stuffed Peppers'>Stuffed Peppers (vegan)</option>
                   </select>
                 </div>
-                } 
+                }
+
+                { isMobile && <DietaryRestrictions/>}
               </div>
 
-              <TextField 
-                id='01' 
-                label='Dietary Restrictions' 
-                name='dietaryRestrictions' 
-                type='textarea' 
-                value={formData.dietaryRestrictions}
-                required={false}
-                handleChange={handleChange}
-              />
-
-              {/* <div className='topMargin topBorder rsvpSection'>
-                <TextField 
-                  id='02' 
-                  label='Street Address' 
-                  name='streetAddress' 
-                  value={formData.streetAddress} 
-                  handleChange={handleChange}
-                />
-                <TextField 
-                  id='03' 
-                  label='Street Address Line 2' 
-                  name='streetAddress2'
-                  value={formData.streetAddress2}
-                  required={false}
-                  handleChange={handleChange}
-                />
-              </div>
-
-              <div className='rsvpSection'>
-                <TextField 
-                  id='04' 
-                  label='Country' 
-                  name='country'
-                  value={formData.country} 
-                  handleChange={handleChange}
-                />
-                <TextField 
-                  id='04' 
-                  label='Province' 
-                  name='province' 
-                  value={formData.province} 
-                  handleChange={handleChange}
-                />
-              </div>
-
-              <div className='rsvpSection'>
-                <TextField 
-                  id='04' 
-                  label='City' 
-                  name='city'
-                  value={formData.city} 
-                  handleChange={handleChange}
-                />
-                <TextField 
-                  id='05'
-                  label='Postal Code' 
-                  name='postalCode'
-                  value={formData.postalCode} 
-                  handleChange={handleChange}
-                />
-              </div> */}
+              { !isMobile && <DietaryRestrictions/> }
 
               <div className='topMargin topBorder rsvpSection'>
                 <TextField 
@@ -214,9 +179,4 @@ export default function RSVP() {
       </form>
     </div>    
   );
-
-  return (
-    <RSVPDesktop/>
-  );
-  
 }

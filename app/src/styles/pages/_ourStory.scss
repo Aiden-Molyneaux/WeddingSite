@@ -50,6 +50,7 @@
     @include flex(column, center, center);
     height: 650px;
     width: 100%;
+    margin-top: -20px;
   }
   .ourStoryImg {
     border: 1px solid $blue;

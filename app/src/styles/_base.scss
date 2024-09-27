@@ -87,9 +87,46 @@ a {
   margin-bottom: 15px;
 }
 
+.leftFlower {
+  width: 520px;
+  position: absolute;
+  top: -200px;
+  left: -110px;
+  transform: rotate(135deg) scaleX(-1);
+  border-radius: 50px;
+  z-index: 0;
+}
+
+.rightFlower {
+  width: 550px;
+  position: absolute;
+  top: -220px;
+  right: -120px;
+  transform: rotate(225deg) scaleX(-1);
+  border-radius: 50px;
+  z-index: 0;
+}
+
+@media (max-width: 1550px) {
+  .leftFlower, .rightFlower {
+    opacity: 0.3;
+  }
+}
+
 @media (max-width: 750px) {
   .sectionHeader {
-    padding-bottom: 0px;
     white-space: wrap;
+  }
+
+  .leftFlower {
+    top: 150px;
+    left: -20px;
+    width: 110vw;
+    transform: rotate(360deg);
+    z-index: -1;
+  }
+
+  .rightFlower {
+    display: none;
   }
 }

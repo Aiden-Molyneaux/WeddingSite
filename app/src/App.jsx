@@ -11,8 +11,8 @@ import MusicRequests from './pages/MusicRequests.jsx';
 import FAQ from './pages/FAQ.jsx';
 import RSVP from './pages/RSVP.jsx';
 import Footer from './components/Footer.jsx';
-import leftFlower from './assets/flower3.png';
-import rightFlower from './assets/rightFlower.jpg';
+import leftFlower from './assets/leftFlower.png';
+import rightFlower from './assets/rightFlower.png';
 
 function App() {
   const navigate = useNavigate();
@@ -26,8 +26,6 @@ function App() {
       navigate('/home');
     }
   }, []);
-
-  console.log(location);
 
   return (
     <>

@@ -1,0 +1,51 @@
+              {/* <div className='topMargin topBorder rsvpSection'>
+                <TextField 
+                  id='02' 
+                  label='Street Address' 
+                  name='streetAddress' 
+                  value={formData.streetAddress} 
+                  handleChange={handleChange}
+                />
+                <TextField 
+                  id='03' 
+                  label='Street Address Line 2' 
+                  name='streetAddress2'
+                  value={formData.streetAddress2}
+                  required={false}
+                  handleChange={handleChange}
+                />
+              </div>
+
+              <div className='rsvpSection'>
+                <TextField 
+                  id='04' 
+                  label='Country' 
+                  name='country'
+                  value={formData.country} 
+                  handleChange={handleChange}
+                />
+                <TextField 
+                  id='04' 
+                  label='Province' 
+                  name='province' 
+                  value={formData.province} 
+                  handleChange={handleChange}
+                />
+              </div>
+
+              <div className='rsvpSection'>
+                <TextField 
+                  id='04' 
+                  label='City' 
+                  name='city'
+                  value={formData.city} 
+                  handleChange={handleChange}
+                />
+                <TextField 
+                  id='05'
+                  label='Postal Code' 
+                  name='postalCode'
+                  value={formData.postalCode} 
+                  handleChange={handleChange}
+                />
+              </div> */}

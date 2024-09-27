@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react';
+import useIsMobile from '../utils/useIsMobile.js';
 import { Link } from 'react-router-dom';
-import homeImg from '../assets/homeImg.jpg';
-import useWindowSize from '../utils/useWindowState.js';
-import homeImgMobile from '../assets/homeImgMobile.png';
 import confetti from 'canvas-confetti';
-import HomeMobile from './HomeMobile.jsx';
+import homeImg from '../assets/homeImgDesktop.png';
+import homeImgMobile from '../assets/homeImgMobile.png';
 
 export default function Home() {
   useEffect(() => {
@@ -33,27 +32,37 @@ export default function Home() {
     return () => clearInterval(intervalId);
   }, []);
 
-  const { width } = useWindowSize();
+  const isMobile = useIsMobile();
 
   function handleClick() {
     window.localStorage.setItem('location', JSON.stringify({ path: '/RSVP' }));
   }
 
-  return (
-    width <= 750
-      ? <HomeMobile handleRSVPClick={handleClick}/>
-      : <div className='homeContent'>
-        <h2 className='marriedText'>We are getting married!</h2>
-        <div className='homeImgContainer'>
-          { width <= 750
-            ? <img src={homeImgMobile} alt='Engagement photo' className='homeImg'/>
-            : <img src={homeImg} alt='Engagement photo' className='homeImg'/>
-          }
-        </div>
+  const MobileDetails = () => (
+    <div className='mobileDetails'>
+      <h2 className={isMobile ? 'marriedTextMobile': 'marriedText'}>We are getting married!</h2>
+      <h2 className='dateInfo'>September 20, 2025</h2>
+      <h2 className='locationInfo'>Perth, ON</h2>
+    </div>
+  );
 
-        <Link className='rsvpButtonContainer' to='/RSVP' onClick={() => handleClick()}>
-          <button className='rsvpButton'>RSVP</button>
-        </Link>
+  return (
+    <div className='homeContent'>
+      { isMobile 
+        ? <MobileDetails/> 
+        : <h2 className={'marriedText'}>We are getting married!</h2> 
+      }
+
+      <div className='homeImgContainer'>
+        { isMobile
+          ? <img src={homeImgMobile} alt='Engagement photo' className='homeImg'/>
+          : <img src={homeImg} alt='Engagement photo' className='homeImg'/>
+        }
       </div>
+      
+      <Link className='rsvpButtonContainer' to='/RSVP' onClick={() => handleClick()}>
+        <button className='rsvpButton'>RSVP</button>
+      </Link>
+    </div>
   );
 }

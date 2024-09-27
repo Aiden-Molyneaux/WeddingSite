@@ -2,13 +2,12 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-export default function ActionButton({ id, path, name, toggleMenu, supportMobile}) {
+export default function ActionButton({ id, path, name, toggleMenu}) {
   ActionButton.propTypes = {
     id: PropTypes.string.isRequired,
     path: PropTypes.string,
     name: PropTypes.string.isRequired,
-    toggleMenu: PropTypes.func,
-    supportMobile: PropTypes.object
+    toggleMenu: PropTypes.func
   };
 
   const location = JSON.parse(window.localStorage.getItem('location'));
@@ -44,10 +43,7 @@ export default function ActionButton({ id, path, name, toggleMenu, supportMobile
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        { supportMobile && window.innerWidth <= 450 
-          ? <span className={getClassName()}>{supportMobile.name1} <br/> {supportMobile.name2}</span>
-          : <span className={getClassName()}>{name}</span> 
-        }
+        <span className={getClassName()}>{name}</span> 
       </Link>
     </div>
   );

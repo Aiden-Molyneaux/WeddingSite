@@ -1,9 +1,10 @@
 .cursorBar {
   @include flex(row, center, flex-end);
   gap: 20px;
+  margin-top: 40px;
 }
 
-.hmm {
+.cursorCards {
   @include flex(row, center, flex-end);
   gap: 20px;
   height: 50px;
@@ -49,9 +50,7 @@
 @media (max-width: 750px) {
   .cursorBar {
     @include flex(column, center, flex-end);
-  }
-  .cursorButtons > button {
-    // font-size: 1em;
+    margin-top: 0px;
   }
   .activeEntry {
     width: 40px;
