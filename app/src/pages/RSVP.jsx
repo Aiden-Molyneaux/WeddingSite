@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, memo } from 'react';
 import useIsMobile from '../utils/useIsMobile.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaperPlane, faCircleNotch } from '@fortawesome/free-solid-svg-icons';
@@ -14,12 +14,6 @@ export default function RSVP() {
     mealChoice: 'Steak',
     mealChoicePlusOne: 'Steak',
     dietaryRestrictions: '',
-    streetAddress: '',
-    streetAddress2: '',
-    country: 'Canada',
-    province: 'Ontario',
-    city: '',
-    postalCode: '',
     additionalNotes: ''
   });
   
@@ -29,26 +23,44 @@ export default function RSVP() {
   const isMobile = useIsMobile();
 
   function handleChange(event) {
+    console.log(event.target.type);
     const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
     setFormData({ ...formData, [event.target.name]: value });
   }
 
-  function handleSubmit(event) {
+  async function submitForm(event) {
     event.preventDefault();
     setIsLoading(true);
     
-    fetch('https://formsubmit.co/9dd068642eb64094e99fc86586fb1715', {
-      method: 'POST',
-      body: new FormData(event.target),
-    })
-      .then(() => {
-        window.localStorage.setItem('formSubmitted', JSON.stringify(true));
-        setIsLoading(false);
-        setFormSubmitted(true);
-      })
-      .catch(() => {
-        setIsLoading(false);
+    const emailData = {
+      name: formData.name,
+      acceptPlusOne: formData.acceptPlusOne,
+      namePlusOne: formData.namePlusOne,
+      willAttend: formData.willAttend,
+      mealChoice: formData.mealChoice,
+      mealChoicePlusOne: formData.mealChoicePlusOne,
+      dietaryRestrictions: formData.dietaryRestrictions,
+      additionalNotes: formData.additionalNotes,
+    };
+    
+    const requestBody = {
+      body: JSON.stringify(emailData)
+    };
+    
+    try {
+      const response = await fetch('https://1hrir9ubdg.execute-api.us-east-1.amazonaws.com/staging/emailRSVP', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(requestBody),
       });
+
+      window.localStorage.setItem('formSubmitted', JSON.stringify(true));
+      setIsLoading(false);
+      setFormSubmitted(true);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setIsLoading(false);
+    }
   }
 
   function findAttendee() {
@@ -78,25 +90,30 @@ export default function RSVP() {
     </>
   );
 
-  const DietaryRestrictions = () => (
-    <TextField 
-      id='01' 
-      label='Dietary Restrictions' 
-      name='dietaryRestrictions' 
-      type='textarea' 
-      value={formData.dietaryRestrictions}
-      required={false}
-      handleChange={handleChange}
-    />
-  );
+  function DietaryRestrictions() {
+    return (
+      <TextField 
+        id='01' 
+        label='Dietary Restrictions' 
+        name='dietaryRestrictions' 
+        type='textarea' 
+        value={formData.dietaryRestrictions}
+        required={false}
+        handleChange={handleChange}
+      />
+    );
+  }
 
   return (
     <div className='pageContent'>
-      <form onSubmit={handleSubmit} className='rvspForm'>
+      <form onSubmit={submitForm} className='rvspForm'>
         <h3 className='sectionHeader'>RSVP</h3>
 
         { formSubmitted 
-          ? <h6 className='bottomMargin topMargin'>You have successfully RSVP'd to Kyra and Aiden's wedding!</h6>
+          ? <div>
+            <h6 className='bottomMargin topMargin'>You have successfully RSVP'd to Kyra and Aiden's wedding!</h6>
+            <h6 className='bottomMargin topMargin'>Thank you so much!</h6> 
+          </div>
           : <>
             { isMobile 
               ? <NameForm/>
@@ -147,16 +164,16 @@ export default function RSVP() {
                 </div>
                 }
 
-                { isMobile && <DietaryRestrictions/>}
+                { isMobile && DietaryRestrictions()}
               </div>
 
-              { !isMobile && <DietaryRestrictions/> }
+              { !isMobile && DietaryRestrictions() }
 
               <div className='topMargin topBorder rsvpSection'>
                 <TextField 
                   id='06' 
                   label='Do you have any other notes for the Bride and Groom?' 
-                  name='additionalNotes' 
+                  name='additionalNotes'
                   type='textarea' 
                   value={formData.additionalNotes}
                   required={false}

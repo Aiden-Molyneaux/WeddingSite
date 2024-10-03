@@ -9,43 +9,69 @@ export default function MusicRequests() {
   const [userName, setUserName] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
-  const [songList, setSongList] = useState([{ id: 1 }]);
+  
+  // Store song data as an array of song objects
+  const [songList, setSongList] = useState([{ id: 0, songTitle: '', artistName: '' }]);
+
+  console.log(songList);
 
   const isMobile = useIsMobile();
 
-  function addSong() {
-    setSongList([...songList, { id: songList.length }]); // Add a new song form
+  // Handle updating individual song data
+  function handleSongChange(index, field, value) {
+    const updatedSongList = [...songList];
+    updatedSongList[index] = { ...updatedSongList[index], [field]: value };
+    setSongList(updatedSongList);
   }
 
-  function handleSubmit(event) {
+  // Add a new song to the song list
+  function addSong() {
+    setSongList([...songList, { id: songList.length, songTitle: '', artistName: '' }]);
+  }
+
+  async function submitForm(event) {
     event.preventDefault();
     setIsLoading(true);
     
-    fetch('https://formsubmit.co/9dd068642eb64094e99fc86586fb1715', {
-      method: 'POST',
-      body: new FormData(event.target),
-    })
-      .then(() => {
-        window.localStorage.setItem('formSubmitted', JSON.stringify(true));
-        setIsLoading(false);
-        setFormSubmitted(true);
-      })
-      .catch(() => {
-        setIsLoading(false);
+    const emailData = {
+      name: userName,
+      songs: songList // Submit the list of songs
+    };
+    
+    const requestBody = {
+      body: JSON.stringify(emailData)
+    };
+    
+    try {
+      const response = await fetch('https://1hrir9ubdg.execute-api.us-east-1.amazonaws.com/staging/emailMusicRequests', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(requestBody),
       });
+
+      window.localStorage.setItem('formSubmitted', JSON.stringify(true));
+      setIsLoading(false);
+      setFormSubmitted(true);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setIsLoading(false);
+    }
   }
 
   return (
     <div className='pageContent'>
-      <form onSubmit={handleSubmit} className='musicRequestForm'>
+      <form onSubmit={submitForm} className='musicRequestForm'>
         <h3 className='sectionHeader'>Music Requests</h3>
 
         { formSubmitted 
-          ? <h6 className='bottomMargin topMargin'>Your music request has been sent Kyra and Aiden!</h6>
+          ? <div>
+            <h6 className='bottomMargin topMargin'>Your music request has been sent to Kyra and Aiden!</h6>
+            <h6 className='bottomMargin topMargin'>Thank you so much!</h6>
+          </div>
           : <>
             <div className={isMobile ? 'rsvpField' : 'rsvpSection'}>
               <label>Who are you?</label>
-              <select name="name" className='rsvpSelect' value={userName} onChange={() => setUserName(event.target.value)}>
+              <select name="name" className='rsvpSelect' value={userName} onChange={(e) => setUserName(e.target.value)}>
                 {attendees.map((attendee, index) => (
                   <option key={index} value={attendee.name}>
                     {attendee.name}
@@ -54,12 +80,17 @@ export default function MusicRequests() {
               </select>
             </div>
 
-            {songList.map((song, index) => (
-              <SongRequestForm key={index} songId={index}/>
+            { songList.map((song, index) => (
+              <SongRequestForm 
+                key={index} 
+                songId={index}
+                songData={song} // Pass the individual song data
+                handleSongChange={handleSongChange} // Pass the handler to update song data
+              />
             ))}
 
             <button type='button' className='topMargin addSongBtn' onClick={addSong}>
-              Add another song
+              <FontAwesomeIcon icon={faPlus} /> Add another song
             </button>
           
             <button type='submit' disabled={isLoading} className="rsvpSubmit">
