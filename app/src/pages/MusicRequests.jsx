@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import useIsMobile from '../utils/useIsMobile.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faCircleNotch } from '@fortawesome/free-solid-svg-icons';
-import SongRequestForm from '../components/SongRequestForm';
-import { attendees } from './attendees';
+import SongRequestForm from '../components/SongRequestForm.jsx';
+import { attendees } from './attendees.js';
 
 export default function MusicRequests() {
   const [userName, setUserName] = useState('');
