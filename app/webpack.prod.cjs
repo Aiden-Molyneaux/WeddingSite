@@ -7,6 +7,6 @@ module.exports = merge(common, {
   devServer: {
     static: './dist',
   },
-    // mode: 'production',
-    // devtool: 'source-map',
+  // mode: 'production',
+  // devtool: 'source-map',
 });
