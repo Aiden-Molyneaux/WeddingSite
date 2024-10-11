@@ -1,4 +1,4 @@
-import useWindowSize from './useWindowState';
+import useWindowSize from './useWindowState.js';
 
 export default function useIsMobile() {
   const { width } = useWindowSize();

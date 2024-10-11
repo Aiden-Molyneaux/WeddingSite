@@ -2,7 +2,7 @@ import React from 'react';
 import useIsMobile from '../utils/useIsMobile.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
-import FAQCard from '../components/FAQCard';
+import FAQCard from '../components/FAQCard.jsx';
 import { faqData } from './faqData.jsx';
 
 export default function FAQ() {
