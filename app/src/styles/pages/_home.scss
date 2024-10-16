@@ -84,10 +84,11 @@
   .marriedTextMobile {
     position: relative;
     color: $blue;
-    font-size: 2.25em;
+    font-size: 2em;
     font-family: $wedding-font;
     font-weight: 700;
     z-index: 1;
+    white-space: nowrap;
   }
   .ourNames {
     font-family: $wedding-font;
