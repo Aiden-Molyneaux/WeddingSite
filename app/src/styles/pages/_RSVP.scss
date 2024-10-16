@@ -118,9 +118,6 @@ select option {
     width: 80%;
     text-align: center;
   }
-  .rsvpField label {
-    font-size: 1.25em;
-  }
   .rsvpSection {
     @include flex(row, center, center);
     width: 80%;

@@ -1,0 +1,27 @@
+.sectionText {
+  width: 700px;
+}
+
+.portholeImg {
+  width: 400px;
+  margin-top: -20px;
+}
+
+.giftsContent {
+  @include flex(column, center, center);
+  width: 80%;
+  padding: 10px;
+  background-color: $white;
+  border: 1px solid $blue;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 750px) {
+  .sectionText {
+    width: 90%;
+  }
+  .giftsContent {
+    width: 80%;
+  }
+}

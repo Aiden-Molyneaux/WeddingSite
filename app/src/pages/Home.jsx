@@ -40,7 +40,7 @@ export default function Home() {
 
   const MobileDetails = () => (
     <div className='mobileDetails'>
-      <h2 className={isMobile ? 'marriedTextMobile': 'marriedText'}>We are getting married!</h2>
+      <h2 className='marriedTextMobile'>We are getting married!</h2>
       <h2 className='dateInfo'>September 20, 2025</h2>
       <h2 className='locationInfo'>Perth, ON</h2>
     </div>
