@@ -30,7 +30,7 @@ export default function OurStory() {
 
   return (
     <div className='pageContent'>
-      <h3 className='sectionHeader'>Our Story</h3>
+      <h3 className='sectionHeader'>Our Story .01</h3>
       <div className='ourStoryContent'>
         <div className='entries' {...(isMobile ? swipeHandlers : {})}>
           <OurStoryEntry date={activeEntry.toString()}/>
