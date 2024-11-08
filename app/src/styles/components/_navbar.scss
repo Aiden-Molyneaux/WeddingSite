@@ -40,14 +40,17 @@
 
 @media (max-width: 750px) {
   .navbar {
-    margin-top: 20px;
+    @include flex(column, auto, center);
+
   }
   .mobileMenu {
     width: 100vw;
   }
   .navbarContent {
-    width: 90vw;
     justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
     z-index: 3;
   }
   .navButtons {
@@ -56,7 +59,7 @@
     border-top: none;
   }
   .navbarName {
-    margin-top: 4px;
+    padding: 20px;
     font-size: 2em;
     font-weight: 700;
   }
@@ -66,12 +69,12 @@
 
   .mobileMenuButtonContainer {
     @include flex(column, center, center);
-    align-self: flex-end;
     // position: absolute;
     // top: 8px;
     // right: 20px;
     height: 100%;
-    width:fit-content;
+    margin-top: 12px;
+    padding-right: 20px;
   }
   .mobileMenuButton {
     color: $blue;
