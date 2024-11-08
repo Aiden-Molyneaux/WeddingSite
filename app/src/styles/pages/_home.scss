@@ -55,6 +55,8 @@
   background: linear-gradient(45deg, #F9F295, #E0AA3E, #E0AA3E, #B88A44);
   animation: homePulse 2s infinite;
   transition: all 0.5s ease;
+  padding-inline: 0px;
+  padding-block: 0px;
 
   &:hover {
     scale: 1.1;
