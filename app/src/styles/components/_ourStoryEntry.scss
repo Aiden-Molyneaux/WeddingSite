@@ -24,6 +24,11 @@
   background-color: $blush;
   border-radius: 1000px;
 
+
+  &:not(:disabled) {
+    border-color: $blue;
+    color: $blue;
+  }
   &:not(:disabled):hover {
     box-shadow: 0px 0px 5px 0px $blue;
     outline: none;
