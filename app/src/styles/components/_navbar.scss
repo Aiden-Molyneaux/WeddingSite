@@ -66,10 +66,12 @@
 
   .mobileMenuButtonContainer {
     @include flex(column, center, center);
+    align-self: flex-end;
     // position: absolute;
     // top: 8px;
     // right: 20px;
     height: 100%;
+    width:fit-content;
   }
   .mobileMenuButton {
     color: $blue;
