@@ -62,16 +62,13 @@
     padding: 20px;
     font-size: 2em;
     font-weight: 700;
+    white-space: nowrap;
   }
   .smallerFont {
     font-size: 0.66em;
   }
-
   .mobileMenuButtonContainer {
     @include flex(column, center, center);
-    // position: absolute;
-    // top: 8px;
-    // right: 20px;
     height: 100%;
     margin-top: 12px;
     padding-right: 20px;
