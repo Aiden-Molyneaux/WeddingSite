@@ -59,10 +59,12 @@
     border-top: none;
   }
   .navbarName {
+    flex: 1;
     padding: 20px;
     font-size: 2em;
     font-weight: 700;
     white-space: nowrap;
+    text-align: start;
   }
   .smallerFont {
     font-size: 0.66em;
@@ -70,7 +72,7 @@
   .mobileMenuButtonContainer {
     @include flex(column, center, center);
     height: 100%;
-    margin-top: 12px;
+    margin-top: 10px;
     padding-right: 20px;
   }
   .mobileMenuButton {
