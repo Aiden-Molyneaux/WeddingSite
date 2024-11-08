@@ -46,7 +46,7 @@
     width: 100vw;
   }
   .navbarContent {
-    width: 100vw;
+    width: 90vw;
     justify-content: space-between;
     z-index: 3;
   }
@@ -57,7 +57,6 @@
   }
   .navbarName {
     margin-top: 4px;
-    margin-left: 20px;
     font-size: 2em;
     font-weight: 700;
   }
@@ -67,9 +66,9 @@
 
   .mobileMenuButtonContainer {
     @include flex(column, center, center);
-    position: absolute;
-    top: 8px;
-    right: 20px;
+    // position: absolute;
+    // top: 8px;
+    // right: 20px;
     height: 100%;
   }
   .mobileMenuButton {
