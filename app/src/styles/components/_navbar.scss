@@ -70,11 +70,12 @@
   .mobileMenuButtonContainer {
     @include flex(column, center, center);
     height: 100%;
+    margin-top: 4px;
     padding-right: 20px;
   }
   .mobileMenuButton {
     color: $blue;
-    font-size: 2.25em;
+    font-size: 2.5em;
     background: none;
     border: none;
     padding-inline: 0px;
