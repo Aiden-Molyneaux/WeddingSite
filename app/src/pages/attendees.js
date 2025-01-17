@@ -10,7 +10,7 @@ export const attendees = [
   { id: '08', name: 'Hayden McKnight', plusOne: true, twoRSVP: false },
   { id: '09', name: 'Janet Basaraba', plusOne: true, twoRSVP: false },
   { id: '10', name: 'Josh Armstrong', plusOne: true, twoRSVP: false },
-  { id: '11', name: 'Justin Basaraba & Veronica ?', plusOne: true, twoRSVP: false },
+  { id: '11', name: 'Justin Basaraba & Veronica Arruda', plusOne: true, twoRSVP: false },
   { id: '12', name: 'Katelyn Basaraba & Tracy Basaraba', plusOne: false, twoRSVP: true },
   { id: '13', name: 'Katherine Basaraba & John Banos', plusOne: false, twoRSVP: true },
   { id: '14', name: 'Kennedy Basaraba-Hoyte', plusOne: true, twoRSVP: false },
