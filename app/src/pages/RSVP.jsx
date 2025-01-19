@@ -120,7 +120,7 @@ export default function RSVP() {
               : <div className='rsvpSection'><NameForm/></div>
             }
 
-            { findAttendee().plusOne &&
+            { formData.willAttend === 'yes' && findAttendee().plusOne &&
             <>
               <div className='rsvpSection'>
                 <label>{ isMobile ? '★ You have a plus one! Accept?' : '★ You have been given a plus one! Accept?'}</label>
@@ -169,18 +169,19 @@ export default function RSVP() {
 
               { !isMobile && DietaryRestrictions() }
 
-              <div className='topMargin topBorder rsvpSection'>
-                <TextField 
-                  id='06' 
-                  label='Do you have any other notes for the Bride and Groom?' 
-                  name='additionalNotes'
-                  type='textarea' 
-                  value={formData.additionalNotes}
-                  required={false}
-                  handleChange={handleChange}
-                />
-              </div>
             </> }
+
+            <div className='topMargin topBorder rsvpSection'>
+              <TextField 
+                id='06' 
+                label='Do you have any other notes for the Bride and Groom?' 
+                name='additionalNotes'
+                type='textarea' 
+                value={formData.additionalNotes}
+                required={false}
+                handleChange={handleChange}
+              />
+            </div>
 
             <button type='submit' disabled={isLoading || formData.name === '--'} className="rsvpSubmit">
               {isLoading ? <FontAwesomeIcon icon={faCircleNotch} spin /> : 'Send your RSVP'}
