@@ -18,9 +18,10 @@ export const attendees = [
   { id: '16', name: 'Guest 16', plusOne: false, twoRSVP: true },
   { id: '17', name: 'Guest 17', plusOne: false, twoRSVP: true },
   { id: '18', name: 'Guest 18', plusOne: false, twoRSVP: true },
-  { id: '19', name: 'Guest 19', plusOne: true, twoRSVP: false },
+  { id: '19', name: 'Guest 19', plusOne: false, twoRSVP: true },
   { id: '20', name: 'Guest 20', plusOne: true, twoRSVP: false },
-  { id: '21', name: 'Guest 21', plusOne: false, twoRSVP: true },
-  { id: '22', name: 'Guest 22', plusOne: false, twoRSVP: false },
-  { id: '23', name: 'Guest 23', plusOne: true, twoRSVP: false }
+  { id: '21', name: 'Guest 21', plusOne: true, twoRSVP: false },
+  { id: '22', name: 'Guest 22', plusOne: false, twoRSVP: true },
+  { id: '23', name: 'Guest 23', plusOne: false, twoRSVP: false },
+  { id: '24', name: 'Guest 24', plusOne: true, twoRSVP: false }
 ];
