@@ -15,12 +15,13 @@ export const attendees = [
   { id: '13', name: 'Katelyn Basaraba & Tracy Basaraba', plusOne: false, twoRSVP: true },
   { id: '14', name: 'Katherine Basaraba & John Banos', plusOne: false, twoRSVP: true },
   { id: '15', name: 'Kennedy Basaraba-Hoyte', plusOne: true, twoRSVP: false },
-  { id: '16', name: 'Patrick Kye Foley & Camille Daoust', plusOne: false, twoRSVP: true },
-  { id: '17', name: 'Rebecca Molyneaux & Kevin Choffe', plusOne: false, twoRSVP: true },
-  { id: '18', name: 'Stephanie Winter & Richard Winter', plusOne: false, twoRSVP: true },
-  { id: '19', name: 'Trishauna Hyatt', plusOne: true, twoRSVP: false },
-  { id: '20', name: 'Tyler Street', plusOne: true, twoRSVP: false },
-  { id: '21', name: 'Victoria Kalonomos & Andrew Kozaris', plusOne: false, twoRSVP: true },
-  { id: '22', name: 'Zack Cameron Hackett', plusOne: false, twoRSVP: false },
-  { id: '23', name: 'Zach McCracken', plusOne: true, twoRSVP: false }
+  { id: '16', name: 'Patricia Molyneaux & Brian Molyneaux', plusOne: false, twoRSVP: true },
+  { id: '17', name: 'Patrick Kye Foley & Camille Daoust', plusOne: false, twoRSVP: true },
+  { id: '18', name: 'Rebecca Molyneaux & Kevin Choffe', plusOne: false, twoRSVP: true },
+  { id: '19', name: 'Stephanie Winter & Richard Winter', plusOne: false, twoRSVP: true },
+  { id: '20', name: 'Trishauna Hyatt', plusOne: true, twoRSVP: false },
+  { id: '21', name: 'Tyler Street', plusOne: true, twoRSVP: false },
+  { id: '22', name: 'Victoria Kalonomos & Andrew Kozaris', plusOne: false, twoRSVP: true },
+  { id: '23', name: 'Zack Cameron Hackett', plusOne: false, twoRSVP: false },
+  { id: '24', name: 'Zach McCracken', plusOne: true, twoRSVP: false }
 ];
