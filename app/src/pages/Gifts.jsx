@@ -11,7 +11,7 @@ export default function Honeymoon() {
         <br/>
         <h4 className='sectionText'>We are so excited to start our married life together and grateful for the love and support of our friends and family. 
           <br/>
-          <br/>If you wish to give a gift, we would be delighted to receive a contribution towards our honeymoon fund. There will be a card box at the wedding receoption for anyone who wishes to give in person. Alternatively, you can send an e-transfer kyra.hoyte@hotmail.com.</h4>
+          <br/>If you wish to give a gift, we would be delighted to receive a contribution towards our honeymoon fund. There will be a card box at the wedding receoption for anyone who wishes to give in person. Alternatively, you can send an e-transfer to kyra.hoyte@hotmail.com.</h4>
         
       </div>
       
