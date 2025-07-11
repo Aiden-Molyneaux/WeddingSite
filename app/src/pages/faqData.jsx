@@ -5,7 +5,11 @@ const setLocation = () => {
 export const faqData = [
   {
     question: 'When is the wedding?',
-    answer: 'The wedding ceremony will be held on Saturday, September 20th, 2025 at 4:00pm. Stewart Park (41 Mill St, Perth, ON K7H 1W2). Following the ceremony, there will be a reception at The Stone Cellar (1 Gore St E, Perth, ON K7H 1H7).'
+    answer: (
+      <>
+        The wedding ceremony will be held on Saturday, September 20th, 2025 at 4:00pm. Stewart Park (41 Mill St, Perth, ON K7H 1W2). Following the ceremony, there will be a reception at Michael's Table (110 Gore St E, Perth, ON K7H 1J3).
+      </>
+    )
   },
   {
     question: 'Do you have any hotel recommendations?',
