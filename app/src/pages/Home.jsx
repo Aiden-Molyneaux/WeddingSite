@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import confetti from 'canvas-confetti';
 import homeImg from '../assets/homeImg.jpg';
 import homeImgMobile from '../assets/homeImgMobile.png';
-import EntryPopup2 from '../components/EntryPopup2.jsx';
+import EntryPopup from '../components/EntryPopup.jsx';
 
 export default function Home() {
   // useEffect(() => {
@@ -49,7 +49,7 @@ export default function Home() {
 
   return (
     <div className='homeContent'>
-      <EntryPopup2 />
+      <EntryPopup/>
       
       { isMobile 
         ? <MobileDetails/> 
