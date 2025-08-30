@@ -7,31 +7,31 @@ import homeImgMobile from '../assets/homeImgMobile.png';
 import EntryPopup from '../components/EntryPopup.jsx';
 
 export default function Home() {
-  // useEffect(() => {
-  //   const blush = '#ffd4d4';
-  //   const blue = '#40547c';
-  //   const white = '#fffbf7';
+  useEffect(() => {
+    const blush = '#ffd4d4';
+    const blue = '#40547c';
+    const white = '#fffbf7';
 
-  //   const createConfetti = (origin) => {
-  //     confetti.create(document.getElementById('my-canvas'), {
-  //       resize: true,
-  //       useWorker: true,
-  //     })({
-  //       particleCount: 200,
-  //       spread: 200,
-  //       origin,
-  //       colors: [blush, blue, white]
-  //     });
-  //   };
+    const createConfetti = (origin) => {
+      confetti.create(document.getElementById('my-canvas'), {
+        resize: true,
+        useWorker: true,
+      })({
+        particleCount: 200,
+        spread: 200,
+        origin,
+        colors: [blush, blue, white]
+      });
+    };
   
-  //   const intervalId = setInterval(() => {
-  //     createConfetti({ x: 0, y: 0 });
-  //     createConfetti({ x: 1, y: 0 });
-  //   }, 2000);
+    const intervalId = setInterval(() => {
+      createConfetti({ x: 0, y: 0 });
+      createConfetti({ x: 1, y: 0 });
+    }, 2000);
   
-  //   // Clear the interval when the component is unmounted
-  //   return () => clearInterval(intervalId);
-  // }, []);
+    // Clear the interval when the component is unmounted
+    return () => clearInterval(intervalId);
+  }, []);
 
   const isMobile = useIsMobile();
 
