@@ -15,11 +15,10 @@ export default function ImageModal() {
   }, [isOpen]);
 
   return (
-    <div className="imageModal">
+    <div>
       <img 
         src={perthMapImg} 
-        alt='Perth Map' 
-        className='projectImg' 
+        alt='Perth Map'
         onClick={() => setIsOpen(true)}
       />
       

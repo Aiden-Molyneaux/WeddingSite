@@ -5,12 +5,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(4, 4, 4, 0.9);
   max-width: 100vw;
   max-height: 100vh;
   top: 0vw;
   width: 100vw;
-  height: 100vh; 
+  height: 100vh;
+  background-color: rgba(4, 4, 4, 0.9);
   animation: fadeIn 0.3s ease-in-out;
   z-index: 10;
 }
@@ -20,11 +20,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 100vw;
-  max-height: 100vh;
+  gap: 10px;
+  max-width: 500px;
   padding: 20px;
   background-color: $blush;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 .entryPopupCloseBtn {
@@ -38,33 +38,23 @@
   height: 40px;
   background: none;
   border: none;
-  font-size: 2rem;
+  font-size: 3rem;
   color: $blue;
+  cursor: pointer;
   transition: all 0.2s ease;
 
   &:hover {
-    font-size: 2.2rem;
+    transform: scale(1.15);
   }
 }
-
-.entryPopupDisclaimer {
-  text-align: center;
-  margin-bottom: 25px;
-  font-family: $content-font;
-  font-size: 1.1em;
-  color: $blue;
-  font-weight: 500;
-}
-
 .entryPopupImageContainer {
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  transition: transform 0.2s ease;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
 
   &:hover {
     transform: scale(1.02);
@@ -72,10 +62,9 @@
 }
 
 .entryPopupImage {
-  max-width: 50%;
-  height: auto;
-  display: block;
+  max-width: 100%;
   border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
 }
 
 /* Image Modal Styles */
@@ -83,51 +72,46 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(4, 4, 4, 0.9);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 2000;
+  width: 100vw;
+  height: 100vh;
   animation: fadeIn 0.3s ease-in-out;
+  z-index: 2000;
 }
 
 .imageModalContent {
   position: relative;
-  max-width: 95vw;
-  max-height: 95vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  max-width: 95vw;
+  max-height: 95vh;
 }
 
 .imageModalCloseBtn {
-  position: absolute;
-  top: -50px;
-  right: 0;
-  background: none;
-  border: none;
-  font-size: 2.5rem;
-  color: white;
-  cursor: pointer;
-  padding: 10px;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  align-self: flex-end;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 50px;
+  height: 50px;
+  font-size: 3rem;
+  color: $blush;
+  background: none;
+  border: none;
+  cursor: pointer;
   transition: all 0.2s ease;
 
   &:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    transform: scale(1.15);
   }
 }
 
 .imageModalImage {
-  max-width: 100%;
-  max-height: 95vh;
+  max-height: 85vh;
   height: auto;
   border-radius: 10px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
@@ -135,35 +119,13 @@
 
 /* Mobile-specific styles */
 @media (max-width: 750px) {
+  .entryPopupOverlay {
+    background: none;
+  }
+  
   .entryPopupContent {
-    padding: 20px;
     margin: 20px;
-    max-width: calc(100vw - 40px);
-  }
-
-  .entryPopupDisclaimer {
-    p {
-      font-size: 1rem;
-    }
-
-    p:first-child {
-      font-size: 1.2rem;
-    }
-  }
-
-  .entryPopupCloseBtn {
-    top: 10px;
-    right: 15px;
-    font-size: 1.8rem;
-    width: 35px;
-    height: 35px;
-  }
-
-  .imageModalCloseBtn {
-    top: -40px;
-    font-size: 2rem;
-    width: 40px;
-    height: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   }
 }
 

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import useIsMobile from '../utils/useIsMobile.js';
-import homeImg from '../assets/perthOverheadMap.jpg';
+import perthOverheadMapImg from '../assets/perthOverheadMap.jpg';
 
-export default function EntryPopup2() {
+export default function EntryPopup() {
   const isMobile = useIsMobile();
   const [isOpen, setIsOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -48,35 +48,34 @@ export default function EntryPopup2() {
             ×
           </button>
           
-          <div className="entryPopupDisclaimer">
-            <h2>A Map for Your Convenience!</h2>
-          </div>
+          <h2>A Map for Your Convenience!</h2>
           
-          <div className="entryPopupImageContainer" onClick={handleImageClick}>
+          <div className="entryPopupImageContainer" onClick={isMobile ? null : handleImageClick}>
             <img 
-              src={homeImg} 
-              alt="Welcome to our wedding" 
+              src={perthOverheadMapImg} 
+              alt="Overhead view of Perth, indicating how to navigate to Ceremony and Reception" 
               className="entryPopupImage"
             />
           </div>
         </div>
       </div>
 
-      {/* Image Modal */}
-      {isModalOpen && (
-        <div className="imageModalOverlay" onClick={handleModalClose}>
-          <div className="imageModalContent" onClick={(e) => e.stopPropagation()}>
-            <button className="imageModalCloseBtn" onClick={handleModalClose}>
+      {/* Modal Popup */}
+      {isModalOpen && !isMobile &&
+        (
+          <div className="imageModalOverlay" onClick={handleModalClose}>
+            <div className="imageModalContent" onClick={(e) => e.stopPropagation()}>
+              <button className="imageModalCloseBtn" onClick={handleModalClose}>
               ×
-            </button>
-            <img 
-              src={homeImg} 
-              alt="Welcome to our wedding" 
-              className="imageModalImage"
-            />
-          </div>
-        </div>
-      )}
+              </button>
+              <img 
+                src={perthOverheadMapImg} 
+                alt="Overhead view of Perth, indicating how to navigate to Ceremony and Reception" 
+                className="imageModalImage"
+              />
+            </div>
+          </div> )
+      }
     </>
   );
 }
